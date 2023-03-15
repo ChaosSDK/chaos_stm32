@@ -1,0 +1,5 @@
+crc16.c:35:5:fast_crc16_t10_dif_array	2
+crc16.c:46:5:fast_crc16_t10_dif_byte	1
+crc16.c:57:5:slow_crc16_t10_dif_array	4
+crc16.c:72:5:slow_crc16_t10_dif_byte	3
+crc16.c:90:5:crc16_test	5

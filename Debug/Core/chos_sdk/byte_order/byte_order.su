@@ -1,0 +1,2 @@
+../Core/chos_sdk/byte_order/byte_order.c:14:12:byteOrderRevCheck	32	static
+../Core/chos_sdk/byte_order/byte_order.c:28:5:endiansTest	352	static

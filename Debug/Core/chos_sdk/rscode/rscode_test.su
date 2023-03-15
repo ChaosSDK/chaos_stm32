@@ -1,0 +1,8 @@
+../Core/chos_sdk/rscode/rscode_test.c:20:6:byte_err	24	static
+../Core/chos_sdk/rscode/rscode_test.c:29:6:byte_erasure	24	static
+../Core/chos_sdk/rscode/rscode_test.c:40:15:rscodeDataCmp	24	static
+../Core/chos_sdk/rscode/rscode_test.c:50:6:rscodePrintArray	32	static
+../Core/chos_sdk/rscode/rscode_test.c:67:12:rs_code_copy_func_test	296	static
+../Core/chos_sdk/rscode/rscode_test.c:124:12:rs_code_only_par_func_test	560	static
+../Core/chos_sdk/rscode/rscode_test.c:192:12:rs_code_only_continious_func_test	560	static
+../Core/chos_sdk/rscode/rscode_test.c:268:5:rs_code_test	3880	static

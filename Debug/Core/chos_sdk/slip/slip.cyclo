@@ -1,0 +1,7 @@
+slip.c:50:12:calc_crc_ccitt	1
+slip.c:58:13:reset_rx	1
+slip.c:67:14:slip_init	1
+slip.c:81:21:put_byte_to_buffer	2
+slip.c:99:14:slip_read_byte	10
+slip.c:152:11:write_encoded_byte	6
+slip.c:182:14:slip_send_message	7

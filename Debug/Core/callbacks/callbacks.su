@@ -1,0 +1,2 @@
+../Core/callbacks/callbacks.c:7:6:HAL_UART_RxCpltCallback	32	static
+../Core/callbacks/callbacks.c:17:6:HAL_SYSTICK_Callback	4	static

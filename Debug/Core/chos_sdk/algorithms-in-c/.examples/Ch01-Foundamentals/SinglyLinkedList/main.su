@@ -1,0 +1,3 @@
+C:/Users/admin/Documents/STM32/f407ve_chos_sdk/Core/chos_sdk/algorithms-in-c/SinglyLinkedList.h:82:20:slist_init	16	static
+../Core/chos_sdk/algorithms-in-c/.examples/Ch01-Foundamentals/SinglyLinkedList/main.c:29:1:intcmp	24	static
+../Core/chos_sdk/algorithms-in-c/.examples/Ch01-Foundamentals/SinglyLinkedList/main.c:31:5:main	64	static

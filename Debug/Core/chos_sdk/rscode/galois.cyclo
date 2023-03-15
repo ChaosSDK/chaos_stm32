@@ -1,0 +1,5 @@
+galois.c:67:5:gexp	2
+galois.c:91:5:gmult	8
+galois.c:129:13:galois_invert_binary_matrix	11
+galois.c:174:12:galois_shift_inverse	3
+galois.c:197:5:ginv	1

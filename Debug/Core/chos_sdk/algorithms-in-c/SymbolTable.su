@@ -1,0 +1,6 @@
+../Core/chos_sdk/algorithms-in-c/IntrusiveLinkedList.h:193:20:islist_init	16	static
+../Core/chos_sdk/algorithms-in-c/SymbolTable.h:93:19:symtab_hash	24	static
+../Core/chos_sdk/algorithms-in-c/SymbolTable.c:28:6:symtab_init	24	static
+../Core/chos_sdk/algorithms-in-c/SymbolTable.c:35:5:symtab_enter	24	static
+../Core/chos_sdk/algorithms-in-c/SymbolTable.c:42:21:symtab_find	32	static
+../Core/chos_sdk/algorithms-in-c/SymbolTable.c:53:9:symtab_retrieve	24	static

@@ -1,0 +1,5 @@
+DoublyLinkedList.h:70:37:dlist_create_node	1
+DoublyLinkedList.c:28:6:dlist_insert_back	1
+DoublyLinkedList.c:41:7:dlist_remove_back	2
+DoublyLinkedList.c:55:23:dlist_find	4
+DoublyLinkedList.c:66:6:dlist_destroy	3

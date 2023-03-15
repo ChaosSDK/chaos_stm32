@@ -1,0 +1,5 @@
+../Core/chos_sdk/algorithms-in-c/DoublyLinkedList.h:70:37:dlist_create_node	24	static
+../Core/chos_sdk/algorithms-in-c/DoublyLinkedList.c:28:6:dlist_insert_back	24	static
+../Core/chos_sdk/algorithms-in-c/DoublyLinkedList.c:41:7:dlist_remove_back	24	static
+../Core/chos_sdk/algorithms-in-c/DoublyLinkedList.c:55:23:dlist_find	32	static
+../Core/chos_sdk/algorithms-in-c/DoublyLinkedList.c:66:6:dlist_destroy	24	static

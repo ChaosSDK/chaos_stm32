@@ -1,0 +1,5 @@
+../Core/chos_sdk/rscode/galois.c:67:5:gexp	64	static
+../Core/chos_sdk/rscode/galois.c:91:5:gmult	80	static
+../Core/chos_sdk/rscode/galois.c:129:13:galois_invert_binary_matrix	40	static
+../Core/chos_sdk/rscode/galois.c:174:12:galois_shift_inverse	88	static
+../Core/chos_sdk/rscode/galois.c:197:5:ginv	16	static

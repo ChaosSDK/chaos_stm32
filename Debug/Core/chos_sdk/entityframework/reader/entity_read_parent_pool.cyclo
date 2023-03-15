@@ -1,0 +1,11 @@
+IntrusiveLinkedList.h:193:20:islist_init	1
+entity_read_parent_pool.c:14:28:entityReadPoolContainer_newBoards	3
+entity_read_parent_pool.c:25:5:entityReadPoolContainer_initBoards	7
+entity_read_parent_pool.c:43:5:entityReadPoolContainer_initBoard	22
+entity_read_parent_pool.c:99:5:entityReadPoolContainer_delete	5
+entity_read_parent_pool.c:122:28:find_TheSameParent	6
+entity_read_parent_pool.c:137:5:entityReadPoolContainer_push	11
+entity_read_parent_pool.c:183:5:entityReadPoolContainer_setReadEnable	5
+entity_read_parent_pool.c:191:5:entityReadPoolContainer_setReadDisable	6
+entity_read_parent_pool.c:214:21:entityReadPoolContainer_getParent	5
+entity_read_parent_pool.c:236:5:entityReadPool_foreach	14

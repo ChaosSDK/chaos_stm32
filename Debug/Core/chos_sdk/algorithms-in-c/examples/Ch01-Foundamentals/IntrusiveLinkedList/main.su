@@ -1,0 +1,9 @@
+C:/Users/admin/Documents/STM32/f407ve_chos_sdk/Core/chos_sdk/algorithms-in-c/IntrusiveLinkedList.h:80:20:idlist_init	16	static
+C:/Users/admin/Documents/STM32/f407ve_chos_sdk/Core/chos_sdk/algorithms-in-c/IntrusiveLinkedList.h:193:20:islist_init	16	static
+../Core/chos_sdk/algorithms-in-c/examples/Ch01-Foundamentals/IntrusiveLinkedList/main.c:36:6:show_student	24	static
+../Core/chos_sdk/algorithms-in-c/examples/Ch01-Foundamentals/IntrusiveLinkedList/main.c:53:21:find_student	24	static
+../Core/chos_sdk/algorithms-in-c/examples/Ch01-Foundamentals/IntrusiveLinkedList/main.c:63:6:use_intrusive_dlist	88	static
+../Core/chos_sdk/algorithms-in-c/examples/Ch01-Foundamentals/IntrusiveLinkedList/main.c:99:6:show_book	32	static
+../Core/chos_sdk/algorithms-in-c/examples/Ch01-Foundamentals/IntrusiveLinkedList/main.c:116:21:find_book	24	static
+../Core/chos_sdk/algorithms-in-c/examples/Ch01-Foundamentals/IntrusiveLinkedList/main.c:126:6:use_intrusive_slist	104	static
+../Core/chos_sdk/algorithms-in-c/examples/Ch01-Foundamentals/IntrusiveLinkedList/main.c:159:5:main	16	static

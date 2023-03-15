@@ -1,0 +1,13 @@
+../Core/chos_sdk/rscode/rs.c:44:6:rs_initialize_ecc	16	static
+../Core/chos_sdk/rscode/rs.c:50:6:rs_zero_fill_from	32	static
+../Core/chos_sdk/rscode/rs.c:61:6:rs_print_parity	24	static
+../Core/chos_sdk/rscode/rs.c:72:6:rs_print_syndrome	24	static
+../Core/chos_sdk/rscode/rs.c:85:13:rs_build_codeword	32	static
+../Core/chos_sdk/rscode/rs.c:106:6:rs_decode_data	48	static
+../Core/chos_sdk/rscode/rs.c:122:5:rs_check_syndrome	32	static
+../Core/chos_sdk/rscode/rs.c:142:13:rs_compute_genpoly	2080	static
+../Core/chos_sdk/rscode/rs.c:172:6:rs_encode_data_continious_start	24	static
+../Core/chos_sdk/rscode/rs.c:182:6:rs_encode_data_continious_proceed	40	static
+../Core/chos_sdk/rscode/rs.c:196:6:rs_encode_data_continious_end	32	static
+../Core/chos_sdk/rscode/rs.c:210:6:rs_encode_data	56	static
+../Core/chos_sdk/rscode/rs.c:232:6:rs_encode_data_onlyParity	56	static

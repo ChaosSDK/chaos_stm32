@@ -1,0 +1,12 @@
+../Core/chos_sdk/rscode/berlekamp.c:55:6:add_polys	32	static
+../Core/chos_sdk/rscode/berlekamp.c:64:6:copy_poly	32	static
+../Core/chos_sdk/rscode/berlekamp.c:73:6:scale_poly	40	static
+../Core/chos_sdk/rscode/berlekamp.c:82:6:zero_poly	24	static
+../Core/chos_sdk/rscode/berlekamp.c:93:13:mul_z_poly	24	static
+../Core/chos_sdk/rscode/berlekamp.c:104:6:mult_polys	296	static
+../Core/chos_sdk/rscode/berlekamp.c:140:6:Modified_Berlekamp_Massey	576	static
+../Core/chos_sdk/rscode/berlekamp.c:205:13:compute_modified_omega	280	static
+../Core/chos_sdk/rscode/berlekamp.c:219:13:init_gamma	160	static
+../Core/chos_sdk/rscode/berlekamp.c:244:12:compute_discrepancy	32	static
+../Core/chos_sdk/rscode/berlekamp.c:261:6:Find_Roots	40	static
+../Core/chos_sdk/rscode/berlekamp.c:301:5:correct_errors_erasures	80	static

@@ -1,0 +1,8 @@
+../Core/chos_sdk/raw_parser/raw_parser_it/raw_parser_it.c:42:17:rawParser_it_new	32	static
+../Core/chos_sdk/raw_parser/raw_parser_it/raw_parser_it.c:59:5:rawParser_it_init	24	static
+../Core/chos_sdk/raw_parser/raw_parser_it/raw_parser_it.c:150:5:rawParser_it_delete	24	static
+../Core/chos_sdk/raw_parser/raw_parser_it/raw_parser_it.c:160:13:RawParser_it_proceedByte	40	static
+../Core/chos_sdk/raw_parser/raw_parser_it/raw_parser_it.c:270:20:RawParser_it_RXproceedIt	24	static
+../Core/chos_sdk/raw_parser/raw_parser_it/raw_parser_it.c:303:20:RawParser_it_RXproceedLoop	64	static
+../Core/chos_sdk/raw_parser/raw_parser_it/raw_parser_it.c:422:5:RawParser_it_TXpush	48	static
+../Core/chos_sdk/raw_parser/raw_parser_it/raw_parser_it.c:566:5:RawParser_it_TXproceedIt	40	static

@@ -1,0 +1,13 @@
+rs.c:44:6:rs_initialize_ecc	1
+rs.c:50:6:rs_zero_fill_from	2
+rs.c:61:6:rs_print_parity	2
+rs.c:72:6:rs_print_syndrome	2
+rs.c:85:13:rs_build_codeword	3
+rs.c:106:6:rs_decode_data	3
+rs.c:122:5:rs_check_syndrome	3
+rs.c:142:13:rs_compute_genpoly	2
+rs.c:172:6:rs_encode_data_continious_start	2
+rs.c:182:6:rs_encode_data_continious_proceed	2
+rs.c:196:6:rs_encode_data_continious_end	2
+rs.c:210:6:rs_encode_data	4
+rs.c:232:6:rs_encode_data_onlyParity	4

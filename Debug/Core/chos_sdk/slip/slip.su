@@ -1,0 +1,7 @@
+../Core/chos_sdk/slip/slip.c:50:12:calc_crc_ccitt	24	static
+../Core/chos_sdk/slip/slip.c:58:13:reset_rx	16	static
+../Core/chos_sdk/slip/slip.c:67:14:slip_init	16	static
+../Core/chos_sdk/slip/slip.c:81:21:put_byte_to_buffer	24	static
+../Core/chos_sdk/slip/slip.c:99:14:slip_read_byte	24	static
+../Core/chos_sdk/slip/slip.c:152:11:write_encoded_byte	24	static
+../Core/chos_sdk/slip/slip.c:182:14:slip_send_message	40	static

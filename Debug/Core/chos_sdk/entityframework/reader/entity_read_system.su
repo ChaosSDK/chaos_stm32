@@ -1,0 +1,2 @@
+../Core/chos_sdk/entityframework/reader/entity_read_system.c:28:12:parentPointersCheck	40	static
+../Core/chos_sdk/entityframework/reader/entity_read_system.c:58:5:initEntityReadSystem	40	static

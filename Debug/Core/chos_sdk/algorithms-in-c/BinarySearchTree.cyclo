@@ -1,0 +1,10 @@
+BinarySearchTree.c:29:19:bst_create_node	1
+BinarySearchTree.c:39:6:bst_destroy	4
+BinarySearchTree.c:51:19:bst_search	4
+BinarySearchTree.c:63:19:bst_minimum	3
+BinarySearchTree.c:73:19:bst_maximum	3
+BinarySearchTree.c:83:19:bst_insert	4
+BinarySearchTree.c:96:19:bst_remove	8
+BinarySearchTree.c:124:19:bst_read	2
+BinarySearchTree.c:133:6:bst_write	2
+BinarySearchTree.c:142:6:bst_inorder	2

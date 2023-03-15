@@ -1,0 +1,13 @@
+../Core/chos_sdk/algorithms-in-c/.examples/Ch02-Sorting/HeapUpdateKey/main.c:30:1:heap_swap	32	static
+../Core/chos_sdk/algorithms-in-c/.examples/Ch02-Sorting/HeapUpdateKey/main.c:30:1:heap_sift_up	32	static
+../Core/chos_sdk/algorithms-in-c/.examples/Ch02-Sorting/HeapUpdateKey/main.c:30:1:heap_sift_down	32	static
+../Core/chos_sdk/algorithms-in-c/.examples/Ch02-Sorting/HeapUpdateKey/main.c:30:1:heap_init	32	static
+../Core/chos_sdk/algorithms-in-c/.examples/Ch02-Sorting/HeapUpdateKey/main.c:30:1:heap_destroy	16	static
+../Core/chos_sdk/algorithms-in-c/.examples/Ch02-Sorting/HeapUpdateKey/main.c:30:1:heap_push	16	static
+../Core/chos_sdk/algorithms-in-c/.examples/Ch02-Sorting/HeapUpdateKey/main.c:30:1:heap_pop	24	static
+../Core/chos_sdk/algorithms-in-c/.examples/Ch02-Sorting/HeapUpdateKey/main.c:30:1:heap_top	16	static
+../Core/chos_sdk/algorithms-in-c/.examples/Ch02-Sorting/HeapUpdateKey/main.c:30:1:heap_update	24	static
+../Core/chos_sdk/algorithms-in-c/.examples/Ch02-Sorting/HeapUpdateKey/main.c:30:1:heap_sort	24	static
+../Core/chos_sdk/algorithms-in-c/.examples/Ch02-Sorting/HeapUpdateKey/main.c:33:5:compare	16	static
+../Core/chos_sdk/algorithms-in-c/.examples/Ch02-Sorting/HeapUpdateKey/main.c:39:6:display_heap_struct	24	static
+../Core/chos_sdk/algorithms-in-c/.examples/Ch02-Sorting/HeapUpdateKey/main.c:55:5:main	120	static

@@ -1,0 +1,5 @@
+SinglyLinkedList.h:69:37:slist_create_node	1
+SinglyLinkedList.c:28:6:slist_insert_back	1
+SinglyLinkedList.c:35:7:slist_remove_back	2
+SinglyLinkedList.c:47:23:slist_find	4
+SinglyLinkedList.c:58:6:slist_destroy	3

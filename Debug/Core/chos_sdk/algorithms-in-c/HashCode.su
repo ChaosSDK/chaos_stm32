@@ -1,0 +1,11 @@
+../Core/chos_sdk/algorithms-in-c/HashCode.c:24:14:RSHash	32	static
+../Core/chos_sdk/algorithms-in-c/HashCode.c:42:14:JSHash	24	static
+../Core/chos_sdk/algorithms-in-c/HashCode.c:60:14:PJWHash	48	static
+../Core/chos_sdk/algorithms-in-c/HashCode.c:88:14:ELFHash	32	static
+../Core/chos_sdk/algorithms-in-c/HashCode.c:111:14:BKDRHash	32	static
+../Core/chos_sdk/algorithms-in-c/HashCode.c:130:14:SDBMHash	24	static
+../Core/chos_sdk/algorithms-in-c/HashCode.c:147:14:DJBHash	24	static
+../Core/chos_sdk/algorithms-in-c/HashCode.c:163:14:DEKHash	24	static
+../Core/chos_sdk/algorithms-in-c/HashCode.c:179:14:BPHash	24	static
+../Core/chos_sdk/algorithms-in-c/HashCode.c:194:14:FNVHash	32	static
+../Core/chos_sdk/algorithms-in-c/HashCode.c:211:14:APHash	24	static

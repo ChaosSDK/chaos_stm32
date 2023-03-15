@@ -1,0 +1,11 @@
+C:/Users/admin/Documents/STM32/f407ve_chos_sdk/Core/chos_sdk/algorithms-in-c/IntrusiveLinkedList.h:193:20:islist_init	16	static
+../Core/chos_sdk/entityframework/reader/entity_read_parent_pool.c:14:28:entityReadPoolContainer_newBoards	32	static
+../Core/chos_sdk/entityframework/reader/entity_read_parent_pool.c:25:5:entityReadPoolContainer_initBoards	32	static
+../Core/chos_sdk/entityframework/reader/entity_read_parent_pool.c:43:5:entityReadPoolContainer_initBoard	56	static
+../Core/chos_sdk/entityframework/reader/entity_read_parent_pool.c:99:5:entityReadPoolContainer_delete	40	static
+../Core/chos_sdk/entityframework/reader/entity_read_parent_pool.c:122:28:find_TheSameParent	32	static
+../Core/chos_sdk/entityframework/reader/entity_read_parent_pool.c:137:5:entityReadPoolContainer_push	56	static
+../Core/chos_sdk/entityframework/reader/entity_read_parent_pool.c:183:5:entityReadPoolContainer_setReadEnable	24	static
+../Core/chos_sdk/entityframework/reader/entity_read_parent_pool.c:191:5:entityReadPoolContainer_setReadDisable	40	static
+../Core/chos_sdk/entityframework/reader/entity_read_parent_pool.c:214:21:entityReadPoolContainer_getParent	56	static
+../Core/chos_sdk/entityframework/reader/entity_read_parent_pool.c:236:5:entityReadPool_foreach	64	static

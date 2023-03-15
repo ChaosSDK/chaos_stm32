@@ -1,0 +1,4 @@
+../Core/chos_sdk/slip/slip_test.c:25:13:send	24	static
+../Core/chos_sdk/slip/slip_test.c:37:5:slip_test	16	static
+../Core/chos_sdk/slip/slip_test.c:50:13:recv_message	48	dynamic
+../Core/chos_sdk/slip/slip_test.c:60:16:write_byte	16	static

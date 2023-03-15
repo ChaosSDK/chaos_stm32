@@ -1,0 +1,8 @@
+../Core/chos_sdk/entityframework/entity_packet.c:29:5:readEntitiesSizes	40	static
+../Core/chos_sdk/entityframework/entity_packet.c:61:5:readEntitiesDescriptions	64	static
+../Core/chos_sdk/entityframework/entity_packet.c:115:5:readEntityFields	96	static
+../Core/chos_sdk/entityframework/entity_packet.c:206:5:readFieldValue	152	static
+../Core/chos_sdk/entityframework/entity_packet.c:262:5:readSeveralFieldsValues	232	static
+../Core/chos_sdk/entityframework/entity_packet.c:336:5:setFieldValue	152	static
+../Core/chos_sdk/entityframework/entity_packet.c:377:5:setSeveralFieldsValues	232	static
+../Core/chos_sdk/entityframework/entity_packet.c:455:5:proceedGluedValues	368	static

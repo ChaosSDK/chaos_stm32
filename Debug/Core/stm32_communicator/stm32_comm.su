@@ -1,0 +1,2 @@
+../Core/stm32_communicator/stm32_comm.c:14:5:init_stm32_communicator	16	static
+../Core/stm32_communicator/stm32_comm.c:30:6:proceedIncommingMessage	40	static
