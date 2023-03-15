@@ -1,0 +1,4 @@
+../Core/chaos_sdk/algorithms-in-c/IntrusiveLinkedList.c:28:6:idlist_insert_back	16	static
+../Core/chaos_sdk/algorithms-in-c/IntrusiveLinkedList.c:39:6:idlist_remove_back	24	static
+../Core/chaos_sdk/algorithms-in-c/IntrusiveLinkedList.c:49:6:islist_insert_back	16	static
+../Core/chaos_sdk/algorithms-in-c/IntrusiveLinkedList.c:55:6:islist_remove_back	16	static

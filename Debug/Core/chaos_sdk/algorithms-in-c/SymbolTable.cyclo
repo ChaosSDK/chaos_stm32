@@ -1,0 +1,6 @@
+IntrusiveLinkedList.h:193:20:islist_init	1
+SymbolTable.h:93:19:symtab_hash	1
+SymbolTable.c:28:6:symtab_init	2
+SymbolTable.c:35:5:symtab_enter	1
+SymbolTable.c:42:21:symtab_find	3
+SymbolTable.c:53:9:symtab_retrieve	2

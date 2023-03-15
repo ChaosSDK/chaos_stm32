@@ -1,0 +1,5 @@
+../Core/chaos_sdk/crc/crc64.c:48:5:fast_crc64jones_array	48	static
+../Core/chaos_sdk/crc/crc64.c:58:5:fast_crc64jones_byte	40	static
+../Core/chaos_sdk/crc/crc64.c:68:5:slow_crc64jones_array	64	static
+../Core/chaos_sdk/crc/crc64.c:83:5:slow_crc64jones_byte	64	static
+../Core/chaos_sdk/crc/crc64.c:106:5:crc64_test	72	static

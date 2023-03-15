@@ -1,0 +1,2 @@
+../Core/chaos_sdk/my_ctype/runtime_cast/runtime_cast_template.c:11:3:readRuntimeCast_int	32	static
+../Core/chaos_sdk/my_ctype/runtime_cast/runtime_cast_template.c:101:5:writeRuntimeCast_int	48	static

@@ -1,0 +1,8 @@
+static_pool_container.c:7:26:staticPoolContainer_new	2
+static_pool_container.c:16:6:staticPoolContainer_init	2
+static_pool_container.c:27:5:staticPoolContainer_delete	5
+static_pool_container.c:59:5:staticPoolContainer_writeArr	10
+static_pool_container.c:79:6:staticPoolContainer_getWriteMeta	7
+static_pool_container.c:87:6:staticPoolContainer_nextWritePos	5
+static_pool_container.c:96:5:staticPoolContainer_readArr	5
+static_pool_container.c:104:6:staticPoolContainer_nextReadPos	5

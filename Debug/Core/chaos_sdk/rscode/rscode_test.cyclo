@@ -1,0 +1,8 @@
+rscode_test.c:20:6:byte_err	1
+rscode_test.c:29:6:byte_erasure	1
+rscode_test.c:40:15:rscodeDataCmp	3
+rscode_test.c:50:6:rscodePrintArray	4
+rscode_test.c:67:12:rs_code_copy_func_test	7
+rscode_test.c:124:12:rs_code_only_par_func_test	8
+rscode_test.c:192:12:rs_code_only_continious_func_test	9
+rscode_test.c:268:5:rs_code_test	2

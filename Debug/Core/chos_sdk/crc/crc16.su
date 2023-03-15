@@ -1,5 +1,0 @@
-../Core/chos_sdk/crc/crc16.c:35:5:fast_crc16_t10_dif_array	24	static
-../Core/chos_sdk/crc/crc16.c:46:5:fast_crc16_t10_dif_byte	16	static
-../Core/chos_sdk/crc/crc16.c:57:5:slow_crc16_t10_dif_array	24	static
-../Core/chos_sdk/crc/crc16.c:72:5:slow_crc16_t10_dif_byte	24	static
-../Core/chos_sdk/crc/crc16.c:90:5:crc16_test	48	static

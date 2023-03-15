@@ -1,0 +1,6 @@
+../Core/chaos_sdk/algorithms-in-c/DisjointSet.c:28:6:set_init	24	static
+../Core/chaos_sdk/algorithms-in-c/DisjointSet.c:40:6:set_destroy	16	static
+../Core/chaos_sdk/algorithms-in-c/DisjointSet.c:46:5:set_find	16	static
+../Core/chaos_sdk/algorithms-in-c/DisjointSet.c:54:5:set_union	24	static
+../Core/chaos_sdk/algorithms-in-c/DisjointSet.c:72:6:set_read	32	static
+../Core/chaos_sdk/algorithms-in-c/DisjointSet.c:88:6:set_write	24	static

@@ -1,0 +1,6 @@
+raw_parser_general.c:49:18:RawParser_gen_new	3
+raw_parser_general.c:61:5:RawParser_gen_init	13
+raw_parser_general.c:82:5:RawParser_gen_delete	5
+raw_parser_general.c:97:13:RawParser_gen_proceedByte	15
+raw_parser_general.c:387:6:RawParser_gen_read_byte	9
+raw_parser_general.c:430:6:RawParser_gen_send_message	24

@@ -1,0 +1,3 @@
+rawparser_macro.c:9:6:rawPTestWriteUni	2
+rawparser_macro.c:32:6:rawPTestWriteType	1
+rawparser_macro.c:42:5:rawParserMacroTest	3

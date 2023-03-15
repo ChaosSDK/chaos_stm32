@@ -1,0 +1,11 @@
+HashCode.c:24:14:RSHash	2
+HashCode.c:42:14:JSHash	2
+HashCode.c:60:14:PJWHash	3
+HashCode.c:88:14:ELFHash	3
+HashCode.c:111:14:BKDRHash	2
+HashCode.c:130:14:SDBMHash	2
+HashCode.c:147:14:DJBHash	2
+HashCode.c:163:14:DEKHash	2
+HashCode.c:179:14:BPHash	2
+HashCode.c:194:14:FNVHash	2
+HashCode.c:211:14:APHash	3

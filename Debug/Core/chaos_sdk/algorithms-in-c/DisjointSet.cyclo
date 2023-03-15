@@ -1,0 +1,6 @@
+DisjointSet.c:28:6:set_init	2
+DisjointSet.c:40:6:set_destroy	1
+DisjointSet.c:46:5:set_find	2
+DisjointSet.c:54:5:set_union	3
+DisjointSet.c:72:6:set_read	3
+DisjointSet.c:88:6:set_write	2

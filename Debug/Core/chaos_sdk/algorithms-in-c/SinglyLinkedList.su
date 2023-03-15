@@ -1,0 +1,5 @@
+../Core/chaos_sdk/algorithms-in-c/SinglyLinkedList.h:69:37:slist_create_node	24	static
+../Core/chaos_sdk/algorithms-in-c/SinglyLinkedList.c:28:6:slist_insert_back	24	static
+../Core/chaos_sdk/algorithms-in-c/SinglyLinkedList.c:35:7:slist_remove_back	24	static
+../Core/chaos_sdk/algorithms-in-c/SinglyLinkedList.c:47:23:slist_find	32	static
+../Core/chaos_sdk/algorithms-in-c/SinglyLinkedList.c:58:6:slist_destroy	24	static

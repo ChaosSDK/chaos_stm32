@@ -1,0 +1,4 @@
+../Core/chaos_sdk/raw_parser/raw_parser_general/raw_parser_general_test.c:14:13:raw_p_gen_send	56	static
+../Core/chaos_sdk/raw_parser/raw_parser_general/raw_parser_general_test.c:41:5:rawParserGenTest	2144	static
+../Core/chaos_sdk/raw_parser/raw_parser_general/raw_parser_general_test.c:118:13:recv_message_test_general	56	static
+../Core/chaos_sdk/raw_parser/raw_parser_general/raw_parser_general_test.c:149:11:write_byte_test_general	40	static

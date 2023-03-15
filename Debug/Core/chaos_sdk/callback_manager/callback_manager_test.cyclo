@@ -1,0 +1,3 @@
+callback_manager_test.c:22:5:callbackManagerTest	4
+callback_manager_test.c:61:6:testWorker1	7
+callback_manager_test.c:79:6:testWorker2	7

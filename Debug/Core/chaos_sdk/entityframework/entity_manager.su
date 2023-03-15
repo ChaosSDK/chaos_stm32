@@ -1,0 +1,13 @@
+../Core/chaos_sdk/entityframework/entity_manager.c:25:13:deleteEntitityFieldsInternal	24	static
+../Core/chaos_sdk/entityframework/entity_manager.c:48:6:deleteEntitityFieldsExternal	24	static
+../Core/chaos_sdk/entityframework/entity_manager.c:72:6:deleteEntities	16	static
+../Core/chaos_sdk/entityframework/entity_manager.c:87:5:newEntities	32	static
+../Core/chaos_sdk/entityframework/entity_manager.c:102:5:initEntity	88	static
+../Core/chaos_sdk/entityframework/entity_manager.c:205:5:initField	56	static
+../Core/chaos_sdk/entityframework/entity_manager.c:242:5:initFieldArray	80	static
+../Core/chaos_sdk/entityframework/entity_manager.c:291:5:initFieldFromPtr	32	static
+../Core/chaos_sdk/entityframework/entity_manager.c:311:5:fieldRename	48	static
+../Core/chaos_sdk/entityframework/entity_manager.c:338:5:initFieldCallback	56	static
+../Core/chaos_sdk/entityframework/entity_manager.c:392:5:entityInitCallback	48	static
+../Core/chaos_sdk/entityframework/entity_manager.c:426:5:entityInitCallback_txt	56	static
+../Core/chaos_sdk/entityframework/entity_manager.c:472:5:foreachEntities	64	static

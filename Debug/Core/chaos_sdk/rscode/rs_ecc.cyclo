@@ -1,0 +1,4 @@
+rs_ecc.c:5:6:rscode_init	1
+rs_ecc.c:11:6:rscode_encode	1
+rs_ecc.c:16:5:rscode_decode	2
+rs_ecc.c:37:5:rscode_decode_with_erasures	3

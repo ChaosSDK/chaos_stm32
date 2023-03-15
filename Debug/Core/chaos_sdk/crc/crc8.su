@@ -1,0 +1,6 @@
+../Core/chaos_sdk/crc/crc8.c:32:4:fast_crc8_maxim_array	24	static
+../Core/chaos_sdk/crc/crc8.c:43:4:fast_crc8_maxim_byte	16	static
+../Core/chaos_sdk/crc/crc8.c:53:4:slow_crc8_maxim_array	24	static
+../Core/chaos_sdk/crc/crc8.c:68:4:slow_crc8_maxim_byte	24	static
+../Core/chaos_sdk/crc/crc8.c:87:16:_proceedCrc_OLD	24	static
+../Core/chaos_sdk/crc/crc8.c:95:5:crc8_test	56	static

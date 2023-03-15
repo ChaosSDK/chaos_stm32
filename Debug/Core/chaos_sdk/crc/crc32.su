@@ -1,0 +1,5 @@
+../Core/chaos_sdk/crc/crc32.c:50:5:fast_crc32b_array	24	static
+../Core/chaos_sdk/crc/crc32.c:62:5:fast_crc32b_byte	16	static
+../Core/chaos_sdk/crc/crc32.c:75:5:slow_crc32b_array	24	static
+../Core/chaos_sdk/crc/crc32.c:90:5:slow_crc32b_byte	24	static
+../Core/chaos_sdk/crc/crc32.c:108:5:crc32_test	64	static

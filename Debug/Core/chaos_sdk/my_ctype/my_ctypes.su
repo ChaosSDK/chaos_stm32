@@ -1,0 +1,7 @@
+../Core/chaos_sdk/my_ctype/my_ctypes.c:35:6:cTypeMemcpy	48	static
+../Core/chaos_sdk/my_ctype/my_ctypes.c:41:6:cTypeRevcpy	56	static
+../Core/chaos_sdk/my_ctype/my_ctypes.c:48:6:cTypePointerInit	24	static
+../Core/chaos_sdk/my_ctype/my_ctypes.c:58:6:pointerInit	16	static
+../Core/chaos_sdk/my_ctype/my_ctypes.c:66:6:pointerFill	24	static
+../Core/chaos_sdk/my_ctype/my_ctypes.c:75:5:cTypeStrnCmp	24	static
+../Core/chaos_sdk/my_ctype/my_ctypes.c:85:5:cTypeStrnRevCmp	24	static

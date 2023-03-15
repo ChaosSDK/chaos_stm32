@@ -1,0 +1,4 @@
+../Core/chaos_sdk/rscode/rs_ecc.c:5:6:rscode_init	16	static
+../Core/chaos_sdk/rscode/rs_ecc.c:11:6:rscode_encode	24	static
+../Core/chaos_sdk/rscode/rs_ecc.c:16:5:rscode_decode	40	static
+../Core/chaos_sdk/rscode/rs_ecc.c:37:5:rscode_decode_with_erasures	40	static

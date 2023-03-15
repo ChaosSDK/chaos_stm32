@@ -1,0 +1,2 @@
+byte_order.c:14:12:byteOrderRevCheck	3
+byte_order.c:28:5:endiansTest	32
