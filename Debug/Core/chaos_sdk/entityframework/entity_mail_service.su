@@ -1,4 +1,4 @@
-C:/Users/admin/Documents/STM32/f407ve_chos_sdk/Core/chaos_sdk/algorithms-in-c/IntrusiveLinkedList.h:193:20:islist_init	16	static
+C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/algorithms-in-c/IntrusiveLinkedList.h:193:20:islist_init	16	static
 ../Core/chaos_sdk/entityframework/entity_mail_service.c:23:22:entityMailService_new	24	static
 ../Core/chaos_sdk/entityframework/entity_mail_service.c:33:5:entityMailService_init	24	static
 ../Core/chaos_sdk/entityframework/entity_mail_service.c:44:28:find_TheSameLetter	32	static

@@ -72,34 +72,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := f407ve_chos_sdk
+BUILD_ARTIFACT_NAME := f407ve_chaos_sdk
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-f407ve_chos_sdk.elf \
+f407ve_chaos_sdk.elf \
 
 MAP_FILES += \
-f407ve_chos_sdk.map \
+f407ve_chaos_sdk.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-f407ve_chos_sdk.list \
+f407ve_chaos_sdk.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: f407ve_chos_sdk.elf secondary-outputs
+main-build: f407ve_chaos_sdk.elf secondary-outputs
 
 # Tool invocations
-f407ve_chos_sdk.elf f407ve_chos_sdk.map: $(OBJS) $(USER_OBJS) C:\Users\admin\Documents\STM32\f407ve_chos_sdk\STM32F407VETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "f407ve_chos_sdk.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\admin\Documents\STM32\f407ve_chos_sdk\STM32F407VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="f407ve_chos_sdk.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+f407ve_chaos_sdk.elf f407ve_chaos_sdk.map: $(OBJS) $(USER_OBJS) C:\Users\admin\Documents\STM32\f407ve_chaos_sdk\STM32F407VETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "f407ve_chaos_sdk.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\admin\Documents\STM32\f407ve_chaos_sdk\STM32F407VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="f407ve_chaos_sdk.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -108,14 +108,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-f407ve_chos_sdk.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "f407ve_chos_sdk.list"
+f407ve_chaos_sdk.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "f407ve_chaos_sdk.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout f407ve_chos_sdk.elf f407ve_chos_sdk.list f407ve_chos_sdk.map
+	-$(RM) default.size.stdout f407ve_chaos_sdk.elf f407ve_chaos_sdk.list f407ve_chaos_sdk.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
