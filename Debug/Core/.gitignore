@@ -2,3 +2,5 @@
 /chos_sdk/
 /stm32_communicator/
 /stm32_printf/
+/app_core/
+/board_pkg/

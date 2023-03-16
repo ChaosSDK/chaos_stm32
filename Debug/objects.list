@@ -8,6 +8,8 @@
 "./Core/Src/tim.o"
 "./Core/Src/usart.o"
 "./Core/Startup/startup_stm32f407vetx.o"
+"./Core/app_core/app_core.o"
+"./Core/board_pkg/board_pkg.o"
 "./Core/callbacks/callbacks.o"
 "./Core/chaos_sdk/algorithms-in-c/BinarySearchTree.o"
 "./Core/chaos_sdk/algorithms-in-c/DisjointSet.o"

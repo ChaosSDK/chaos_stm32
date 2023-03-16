@@ -274,7 +274,7 @@ int readSeveralFieldsValues(u8* const inputData, u8* const outputData, reg* cons
 
     outputData[Wpos++] = ENTITY_OK;
 
-    while((Rpos + (ENTITIES_SIZEOF + ENTITY_FIELD_SIZEOF)) < inputMsgSize) {
+    while((Rpos + (ENTITIES_SIZEOF + ENTITY_FIELD_SIZEOF - 1U)) < inputMsgSize) {
 
         readEntityFieldNumbersfromBuf(&entityNumber, &fieldNumber, inputData, &Rpos);
 

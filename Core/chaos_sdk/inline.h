@@ -1,7 +1,7 @@
 #ifndef __INLINE_H__
 #define __INLINE_H__ 1
 /*
- * This library implemented for support external inline linkage for different compilers:
+ * This library implemented for support external/internal inline linkage for different compilers:
  * - C89                    (GNU, ISO      )
  * - C99                    (GNU, ISO, MSVC)
  * - younger С - compilers  (GNU, ISO, MSVC)
@@ -97,7 +97,7 @@
 
 /*
  * *********************************************************************************
- * static INLINE`s (this function may be different`s foreach translation unit)
+ * Functions for internal inline linkage
  * *********************************************************************************
  */
 

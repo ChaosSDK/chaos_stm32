@@ -7,25 +7,19 @@
 
 void entityCMD(u8* const inputData, u8* const outputData, reg* const size, const reg maxOutBufferSize, PREPROCESSOR_CTX_TYPE(ctx))
 {
-    M_Assert_Break((inputData != NULL) || (outputData == NULL) || (size == NULL), M_EMPTY, return, "entityCMD: invalid input");
+    M_Assert_Break((inputData == NULL) || (outputData == NULL) || (size == NULL), M_EMPTY, return, "entityCMD: invalid input");
 
     const reg sizeInternal = (*size);
     M_Assert_Break((sizeInternal == 0) || (maxOutBufferSize == 0), M_EMPTY, return, "entityCMD: invalid input size");
 
-    PREPROCESSOR_CTX_GET(ctx,
-                               const u8* const Board_ID,
-                               const u8* const ENTITY_CMD)
-
-    reg Wpos = 0;
-    reg Rpos = 0;
+    reg Wpos = 1;
+    reg Rpos = 1;
     reg entitySize = 0;
-    const u8 cmd = inputData[Rpos++];
+    const u8 cmd = inputData[0];
 
 
     // write header------------------------------------------
-    outputData[Wpos++] = (*Board_ID);               // Board_ID
-    outputData[Wpos++] = (*ENTITY_CMD);             // ENTITY_CMD
-    outputData[Wpos++] =   cmd;                     // CMD_ID
+    outputData[0] =   cmd;                     // CMD_ID
 
     // do logic------------------------------------------
     switch(cmd) {
@@ -41,7 +35,7 @@ void entityCMD(u8* const inputData, u8* const outputData, reg* const size, const
      *  READ DESCRIPTIONS
      */
     case READ_ENTITY_DESCRIPTIONS: {
-        ENTITY_DBG_ASSERT_BUF( (Rpos + (ENTITIES_SIZEOF << 1)) > sizeInternal, M_EMPTY, return, "entityCMD: read size more than buffer");
+        //ENTITY_DBG_ASSERT_BUF( (Rpos + (ENTITIES_SIZEOF << 1)) > sizeInternal, M_EMPTY, return, "entityCMD: read size more than buffer");
 
         // read entity start
         TYPEOF_STRUCT(EntityInfo, entities_count) startEntityNumber;
@@ -63,7 +57,7 @@ void entityCMD(u8* const inputData, u8* const outputData, reg* const size, const
      *  READ FIELDS
      */
     case READ_ENTITY_FIELDS: {
-        ENTITY_DBG_ASSERT_BUF( (Rpos + ENTITIES_SIZEOF + (ENTITY_FIELD_SIZEOF << 1)) > sizeInternal, M_EMPTY, return, "entityCMD: read size more than buffer");
+        //ENTITY_DBG_ASSERT_BUF( (Rpos + ENTITIES_SIZEOF + (ENTITY_FIELD_SIZEOF << 1)) > sizeInternal, M_EMPTY, return, "entityCMD: read size more than buffer");
 
         TYPEOF_STRUCT(EntityInfo, entities_count)   entityNumber;
         TYPEOF_STRUCT(Entity, fields_count)         startFieldNumber;
@@ -81,7 +75,7 @@ void entityCMD(u8* const inputData, u8* const outputData, reg* const size, const
      *  READ Values
      */
     case READ_FIELD_VALUE: {
-        ENTITY_DBG_ASSERT_BUF( (Rpos + ENTITIES_SIZEOF + ENTITY_FIELD_SIZEOF) > sizeInternal, M_EMPTY, return, "entityCMD: read size more than buffer");
+        //ENTITY_DBG_ASSERT_BUF( (Rpos + ENTITIES_SIZEOF + ENTITY_FIELD_SIZEOF) > sizeInternal, M_EMPTY, return, "entityCMD: read size more than buffer");
 
         TYPEOF_STRUCT(EntityInfo, entities_count)   entityNumber;
         TYPEOF_STRUCT(Entity, fields_count)         fieldNumber;
@@ -99,7 +93,7 @@ void entityCMD(u8* const inputData, u8* const outputData, reg* const size, const
      *  WRITE Values
      */
     case WRITE_FIELD_VALUE: {
-        ENTITY_DBG_ASSERT_BUF( (Rpos + ENTITIES_SIZEOF + ENTITY_FIELD_SIZEOF) > sizeInternal, M_EMPTY, return, "entityCMD: read size more than buffer");
+        //ENTITY_DBG_ASSERT_BUF( (Rpos + ENTITIES_SIZEOF + ENTITY_FIELD_SIZEOF) > sizeInternal, M_EMPTY, return, "entityCMD: read size more than buffer");
 
         TYPEOF_STRUCT(EntityInfo, entities_count)   entityNumber;
         TYPEOF_STRUCT(Entity, fields_count)         fieldNumber;
@@ -130,6 +124,7 @@ void entityCMD(u8* const inputData, u8* const outputData, reg* const size, const
     }
 
     (*size) = (Wpos + entitySize);
+    UNUSED(ctx);
 }
 
 #endif /* C_ENTITY_FRAMEWORK_LIB_ENA */

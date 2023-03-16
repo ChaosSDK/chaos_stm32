@@ -34,6 +34,8 @@ CPP_DEPS :=
 SUBDIRS := \
 Core/Src \
 Core/Startup \
+Core/app_core \
+Core/board_pkg \
 Core/callbacks \
 Core/chaos_sdk/algorithms-in-c \
 Core/chaos_sdk/byte_order \

@@ -7,6 +7,8 @@
 #include "main.h"
 #include "stm32_comm.h"
 #include "comm_workers.h"
+#include "entity_cmd.h"
+#include "board_pkg.h"
 
 Communicator_t comm;
 extern UART_HandleTypeDef huart1;
@@ -21,6 +23,7 @@ int init_stm32_communicator(void)
 	// init callback manager
 	CallbackManager_init(&comm.manager);
 	CallbackManager_addWorker(&comm.manager, 0x00, ping_worker, NULL);
+	CallbackManager_addWorker(&comm.manager, 0xF0, entityCMD, NULL);
 
 	HAL_UART_Receive_IT(&huart1, &comm.receiveByte, 1);
 	return state;
@@ -33,24 +36,36 @@ void proceedIncommingMessage(void)
 	const RawParser_Frame_t* const Rxframe = RawParser_dma_proceed(&comm.rawparser);
 	u8* const input_data 	= Rxframe->data;
 	reg input_size 			= Rxframe->size;
-	const u8 cmd_id 		= input_data[0];
+	const boards_t* const board_entry_internal = board_entry;
+
+	const u8 bid 		= input_data[0];
+	const u8 cmd_id 	= input_data[1];
 
 	// do logic ------------------------------------------------------------------
 	HAL_UART_Receive_IT(&huart1, &comm.receiveByte, 1);
 
-	if((Rxframe == NULL) || (input_size == 0)) {
+	M_Assert_Break(((Rxframe == NULL) || (input_data == NULL) || (board_entry_internal == NULL)), M_EMPTY, return, "proceedIncommingMessage: No valid descriptors");
+
+	// check input size and boars id
+	if((input_size < 2U) || (bid != board_entry_internal->boardId)) {
 		return;
 	}
 
-	if(!CallbackManager_proceed(&comm.manager, cmd_id, input_data, comm.outputData, &input_size, D_RAW_P_TX_BUF_SIZE)) {
-		return;
+	// call worker
+	input_size -= 2;
+	if(!CallbackManager_proceed(&comm.manager, cmd_id, &input_data[2], &comm.outputData[2], &input_size, (D_RAW_P_TX_BUF_SIZE - 2U))) {
+		input_size = 0;
 	}
 
-	if(input_size == 0) {
-		return;
-	}
+//	// check if worker want to send packet
+//	if(input_size == 0) {
+//		return;
+//	}
 
-	const RawParser_Frame_t* const Txframe = RawParser_dma_shieldFrame(&comm.rawparser, comm.outputData, input_size);
+	comm.outputData[0] = bid;
+	comm.outputData[1] = cmd_id;
+
+	const RawParser_Frame_t* const Txframe = RawParser_dma_shieldFrame(&comm.rawparser, comm.outputData, (input_size + 2));
 	HAL_UART_Transmit(&huart1, Txframe->data, Txframe->size, 10000);
 }
 

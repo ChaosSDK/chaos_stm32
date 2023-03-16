@@ -25,11 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "stm32_comm.h"
-#include "byte_order.h"
-#include "protocol_test.h"
-#include "my_ctypes.h"
-#include "convert.h"
+#include "app_core.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -96,34 +92,16 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
-  init_stm32_communicator();
+
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
   HAL_GPIO_WritePin(NP_dir_GPIO_Port, NP_dir_Pin, GPIO_PIN_SET);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-//  u64 from = 0x0102030405060708ull;
-//  u64 to = 0;
-//  MY_CTYPE_USER_DATA_MEMCPY(sizeof(u64), &from, &to);
-//
-//	u8 data[30] = {0};
-//	reg pos = 0;
-//
-//	TEMPLATE(convertWrite_MSB, u16)(data, &pos, 853);
-//	TEMPLATE(convertWrite_MSB, u8)(data, &pos, 255);
-//	TEMPLATE(convertWrite_MSB, f32)(data, &pos, 123.456);
-//
-//	//*(u32 *)&data[2] = 0x01020304ul;
-//	//TEMPLATE(CAT_ENDIAN(convertWrite), u64)(data, &pos, 1122334455);
-//	MY_CTYPE_USER_DATA_REVCPY(sizeof(u64), &from, &data[3]);
-
- // protocolAllTest(44, 100, (TESTER_CRC | TESTER_ENDIAN | TESTER_CONVERT | TESTER_RAW_P_DMA | TESTER_REED_SOLOMON_ECC | TESTER_CALLBACK_MANAGER | TESTER_PULL_CONTAINER | TESTER_RAW_P_IT | TESTER_RAW_P_GEN));
-  //protocolAllTest(44, 100, TESTER_ENDIAN | TESTER_CONVERT | TESTER_RAW_P_GEN |TESTER_RAW_P_IT | TESTER_RAW_P_DMA);
+  app_main();
   while (1)
   {
-	  proceedIncommingMessage();
-	  //endiansTest();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

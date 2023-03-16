@@ -172,7 +172,7 @@ STATIC_FORCEINLINE void proceedWriteEntity(const TYPEOF_STRUCT(EntityField, bitF
 #endif /* defined(USE_ENTITY_POINTER) */
 
                                     {
-                                        ENTITY_BYTE_CPY(typeLen, inputData, (u8*)ptr);
+                                        ENTITY_BYTE_CPY(typeLen, inputData, ptr);
                                     }
 
 #ifdef USE_ENTITY_ATOMIC

@@ -1,2 +1,2 @@
-stm32_comm.c:14:5:init_stm32_communicator	2
-stm32_comm.c:30:6:proceedIncommingMessage	5
+stm32_comm.c:16:5:init_stm32_communicator	2
+stm32_comm.c:33:6:proceedIncommingMessage	10

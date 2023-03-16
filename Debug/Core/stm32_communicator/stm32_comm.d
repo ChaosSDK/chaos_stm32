@@ -52,7 +52,13 @@ Core/stm32_communicator/stm32_comm.o: \
  C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/preprocessor/preprocessor_arguments.h \
  C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/preprocessor/preprocessor_arithmetic.h \
  C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/preprocessor/preprocessor_tuple.h \
- ../Core/stm32_communicator/comm_workers.h
+ ../Core/stm32_communicator/comm_workers.h \
+ C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/entityframework/entity_cmd.h \
+ C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/entityframework/entity_port.h \
+ C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/byte_order/byte_order.h \
+ C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/byte_order/endianness.h \
+ C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/preprocessor/preprocessor_concatenation.h \
+ C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/board_pkg/board_pkg.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -107,3 +113,9 @@ C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/preprocessor/prep
 C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/preprocessor/preprocessor_arithmetic.h:
 C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/preprocessor/preprocessor_tuple.h:
 ../Core/stm32_communicator/comm_workers.h:
+C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/entityframework/entity_cmd.h:
+C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/entityframework/entity_port.h:
+C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/byte_order/byte_order.h:
+C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/byte_order/endianness.h:
+C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/preprocessor/preprocessor_concatenation.h:
+C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/board_pkg/board_pkg.h:

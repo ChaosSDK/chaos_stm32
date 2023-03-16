@@ -33,6 +33,8 @@ RM := rm -rf
 -include Core/chaos_sdk/algorithms-in-c/subdir.mk
 -include Core/chaos_sdk/subdir.mk
 -include Core/callbacks/subdir.mk
+-include Core/board_pkg/subdir.mk
+-include Core/app_core/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
