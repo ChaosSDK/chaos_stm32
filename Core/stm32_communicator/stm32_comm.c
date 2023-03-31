@@ -46,7 +46,7 @@ void proceedIncommingMessage(void)
 
 	M_Assert_Break(((Rxframe == NULL) || (input_data == NULL) || (board_entry_internal == NULL)), M_EMPTY, return, "proceedIncommingMessage: No valid descriptors");
 
-	// check input size and boars id
+	// check input size and board id
 	if((input_size < 2U) || (bid != board_entry_internal->boardId)) {
 		return;
 	}
@@ -58,14 +58,14 @@ void proceedIncommingMessage(void)
 	}
 
 //	// check if worker want to send packet
-//	if(input_size == 0) {
-//		return;
-//	}
+	if(input_size == 0) {
+		return;
+	}
 
 	comm.outputData[0] = bid;
 	comm.outputData[1] = cmd_id;
 
 	const RawParser_Frame_t* const Txframe = RawParser_dma_shieldFrame(&comm.rawparser, comm.outputData, (input_size + 2));
-	HAL_UART_Transmit(&huart1, Txframe->data, Txframe->size, 10000);
+	HAL_UART_Transmit(&huart1, Txframe->data, Txframe->size, 1000);
 }
 

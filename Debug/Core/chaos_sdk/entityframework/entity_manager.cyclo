@@ -3,7 +3,7 @@ entity_manager.c:48:6:deleteEntitityFieldsExternal	3
 entity_manager.c:72:6:deleteEntities	2
 entity_manager.c:87:5:newEntities	3
 entity_manager.c:102:5:initEntity	8
-entity_manager.c:205:5:initField	14
+entity_manager.c:205:5:initField	8
 entity_manager.c:242:5:initFieldArray	18
 entity_manager.c:291:5:initFieldFromPtr	9
 entity_manager.c:311:5:fieldRename	6

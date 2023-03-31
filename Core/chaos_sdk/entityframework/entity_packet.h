@@ -75,7 +75,7 @@ STATIC_FORCEINLINE void proceedReadEntity(const TYPEOF_STRUCT(EntityField, bitFl
 
 #if defined(USE_ENTITY_POINTER) && defined(USE_ENTITY_REGISTER)
 
-                                    if((bitFlags) & (ENTITY_POINTER_MSK | ENTITY_REGISTER_MSK)) {
+                                    if((bitFlags & ENTITY_POINTER_MSK) && (bitFlags & ENTITY_REGISTER_MSK)) {
                                         volatile reg* reg_ptr_from = (volatile reg*) (* REG_TYPE_DC(ptr));
                                         volatile reg* reg_ptr_to   = (volatile reg*) (  outputData);
                                         if(reg_ptr_from) {
@@ -132,7 +132,7 @@ STATIC_FORCEINLINE void proceedWriteEntity(const TYPEOF_STRUCT(EntityField, bitF
 
 #if defined(USE_ENTITY_POINTER) && defined(USE_ENTITY_REGISTER)
 
-                                    if((bitFlags) & (ENTITY_POINTER_MSK | ENTITY_REGISTER_MSK)) {
+    								if((bitFlags & ENTITY_POINTER_MSK) && (bitFlags & ENTITY_REGISTER_MSK)) {
                                         volatile reg* reg_ptr_to        = (volatile reg*) (* REG_TYPE_DC(ptr));
                                         volatile reg* reg_ptr_from      = (volatile reg*) (  inputData);
                                         if(reg_ptr_to) {
