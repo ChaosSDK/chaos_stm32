@@ -233,33 +233,42 @@ STATIC_FORCEINLINE void writeEntityFieldNumbersToBuf(const TYPEOF_STRUCT(EntityI
 
 
 // read entity number from input buffer
-STATIC_FORCEINLINE void readEntityNumberFromBuf(TYPEOF_STRUCT(EntityInfo, entities_count)* const entityNumber, u8* const inputData)
+STATIC_FORCEINLINE TYPEOF_STRUCT(EntityInfo, entities_count) readEntityNumberFromBuf(u8* const inputData)
 {
     /*******************************************************************************************************
      *  read entity number
      */
+	TYPEOF_STRUCT(EntityInfo, entities_count) entityNumber;
+
 #if (MAX_NUBER_OF_ENTITIES < 256U)
-    (*entityNumber) = *(inputData);
+	entityNumber = *(inputData);
 #else
-    ENTITY_BYTE_CPY(ENTITIES_SIZEOF, inputData, (u8*)entityNumber);
-    (*entityNumber) &= 0x0000FFFFUL;
+
+    ENTITY_BYTE_CPY(ENTITIES_SIZEOF, inputData, &entityNumber);
+    entityNumber &= 0x0000FFFFUL;
 #endif /* (MAX_NUBER_OF_ENTITIES < 256U) */
     //----------------- END --------------------------------------------------------------------------------
+
+    return entityNumber;
 }
 
 // read field number from input buffer
-STATIC_FORCEINLINE void readFieldNumberFromBuf(TYPEOF_STRUCT(Entity, fields_count)* const fieldNumber, u8* const inputData)
+STATIC_FORCEINLINE TYPEOF_STRUCT(Entity, fields_count) readFieldNumberFromBuf(u8* const inputData)
 {
     /*******************************************************************************************************
      *  read field number
      */
+	TYPEOF_STRUCT(Entity, fields_count) fieldNumber;
+
 #if (MAX_NUBER_OF_FIELDS < 256U)
-    (*fieldNumber) = *(inputData);
+	fieldNumber = *(inputData);
 #else
-    ENTITY_BYTE_CPY(ENTITY_FIELD_SIZEOF, inputData, (u8*)fieldNumber);
-    (*fieldNumber) &= 0x0000FFFFUL;
+    ENTITY_BYTE_CPY(ENTITY_FIELD_SIZEOF, inputData, &fieldNumber);
+    fieldNumber &= 0x0000FFFFUL;
 #endif /* (MAX_NUBER_OF_FIELDS < 256U) */
     //----------------- END --------------------------------------------------------------------------------
+
+    return fieldNumber;
 }
 
 // read entity & field number from input buffer by next position
@@ -270,13 +279,13 @@ STATIC_FORCEINLINE void readEntityFieldNumbersfromBuf(TYPEOF_STRUCT(EntityInfo, 
     /*******************************************************************************************************
      *  read entity number
      */
-    readEntityNumberFromBuf(entityNumber, &inputData[Rpos_internal]);
+    (*entityNumber) = readEntityNumberFromBuf(&inputData[Rpos_internal]);
     Rpos_internal += ENTITIES_SIZEOF;
 
     /*******************************************************************************************************
      *  read field number
      */
-    readFieldNumberFromBuf(fieldNumber, &inputData[Rpos_internal]);
+    (*fieldNumber) = readFieldNumberFromBuf(&inputData[Rpos_internal]);
     Rpos_internal += ENTITY_FIELD_SIZEOF;
 
     //----------------- END -----------------------------------------------

@@ -174,7 +174,9 @@ static void RawParser_dma_proceedByte(RawParser_dma_t* const self, const u8 ch, 
     if (newFrame) {
 
 #ifdef D_RAW_P_CRC_ENA
-        self->m_receiveCalcCRC = D_RAW_P_CRC_INIT;
+    	M_Assert_Warning(self->receiveState < RAW_P_DMA_RECEIVE_CRC_0 , M_EMPTY, M_EMPTY, "RawParser_dma_proceedByte: last packet error!!!");
+
+    	self->m_receiveCalcCRC = D_RAW_P_CRC_INIT;
         D_RAW_P_CRC_START(self->m_receiveCalcCRC);
 #endif /* D_RAW_P_CRC_ENA */
 

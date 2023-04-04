@@ -38,8 +38,7 @@ void entityCMD(u8* const inputData, u8* const outputData, reg* const size, const
         //ENTITY_DBG_ASSERT_BUF( (Rpos + (ENTITIES_SIZEOF << 1)) > sizeInternal, M_EMPTY, return, "entityCMD: read size more than buffer");
 
         // read entity start
-        TYPEOF_STRUCT(EntityInfo, entities_count) startEntityNumber;
-        readEntityNumberFromBuf(&startEntityNumber, &inputData[Rpos]);
+        TYPEOF_STRUCT(EntityInfo, entities_count) startEntityNumber = readEntityNumberFromBuf(&inputData[Rpos]);
         Rpos += ENTITIES_SIZEOF;
 
         // read number of entity
@@ -65,7 +64,7 @@ void entityCMD(u8* const inputData, u8* const outputData, reg* const size, const
         readEntityFieldNumbersfromBuf(&entityNumber, &startFieldNumber, inputData, &Rpos);
 
         //read number of fields
-        readFieldNumberFromBuf(&len, &inputData[Rpos]);
+        len = readFieldNumberFromBuf(&inputData[Rpos]);
         Rpos += ENTITY_FIELD_SIZEOF;
 
         readEntityFields(entityNumber, startFieldNumber, len, (outputData + Wpos), &entitySize, (maxOutBufferSize - Wpos));

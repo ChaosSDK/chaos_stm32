@@ -32,21 +32,27 @@ int init_stm32_communicator(void)
 
 void proceedIncommingMessage(void)
 {
+	HAL_UART_Receive_IT(&huart1, &comm.receiveByte, 1);
+
 	// move to cash--------------------------------------------------------------
 	const RawParser_Frame_t* const Rxframe = RawParser_dma_proceed(&comm.rawparser);
 	u8* const input_data 	= Rxframe->data;
 	reg input_size 			= Rxframe->size;
+
+//	if(input_size == 0) {
+//		return;
+//	}
+
 	const boards_t* const board_entry_internal = board_entry;
 
 	const u8 bid 		= input_data[0];
 	const u8 cmd_id 	= input_data[1];
 
 	// do logic ------------------------------------------------------------------
-	HAL_UART_Receive_IT(&huart1, &comm.receiveByte, 1);
 
 	M_Assert_Break(((Rxframe == NULL) || (input_data == NULL) || (board_entry_internal == NULL)), M_EMPTY, return, "proceedIncommingMessage: No valid descriptors");
 
-	// check input size and board id
+//	// check input size and board id
 	if((input_size < 2U) || (bid != board_entry_internal->boardId)) {
 		return;
 	}
