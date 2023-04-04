@@ -9,7 +9,7 @@ void entityBoardInit(void)
 	reg board_entityNum = ENTITY_NUMBER_ERROR;
 	reg fieldNumber = 0;
 
-	int state = initEntity(&board_entityNum, 17, sizeof(boards_t), "BID ", 0, 0, NULL);
+	int state = initEntity(&board_entityNum, (17 + 10 + 1), sizeof(boards_t), "BID ", 0, 0, NULL);
 	M_Assert_BreakSaveCheck((state == ENTITY_ERROR), M_EMPTY, return, "entityBoardInit: initEntity Error");
 
 	Entity* const entity = getEntityPointer(board_entityNum);
@@ -42,9 +42,13 @@ void entityBoardInit(void)
     //initField(entity, &fieldNumber, (ENTITY_EMPTY_FLAG), offsetof(boards_t, _17), REG_TYPE,                 "F17", &entry->_17);
     //initField(entity, &fieldNumber, (ENTITY_EMPTY_FLAG), offsetof(boards_t, _18), SREG_TYPE,                "F18", &entry->_18);
 
+    initFieldArray(entity, &fieldNumber, (ENTITY_EMPTY_FLAG), offsetof(boards_t, data), UINT8_TYPE, sizeof(entry->data), NULL, entry->data, 1);
+    initFieldPointer(entity, &fieldNumber, (ENTITY_EMPTY_FLAG), offsetof(boards_t, ptr), UINT8_TYPE,                "REG", &entry->ptr);
+    entry->ptr = (reg)&entry->data[1];
+
 	entry->boardId 	= INIT_BOARD_ID;
 	entry->major 	= BOARD_MAJOR;
 	entry->minor 	= BOARD_MINOR;
 	entry->patch	= BOARD_PATCHLEVEL;
-	board_entry = entry;
+	board_entry 	= entry;
 }

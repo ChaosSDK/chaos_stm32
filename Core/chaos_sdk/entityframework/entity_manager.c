@@ -226,7 +226,18 @@ int initField(Entity* const entityInst, reg* const fieldNumber, const TYPEOF_STR
                                     }
 
                                     if(field_ptr) {
-                                        cTypePointerInit(type, (u8 *)field_ptr);
+                                    	reg typeLen;
+#ifdef USE_ENTITY_POINTER
+										if(bitFlags & ENTITY_POINTER_MSK) {
+											typeLen = sizeof(reg);
+										} else {
+#endif /* USE_ENTITY_REGISTER */
+											typeLen = getMYCTypeLen(type);
+#ifdef USE_ENTITY_POINTER
+										}
+#endif /* USE_ENTITY_REGISTER */
+
+                                    	memset(field_ptr, 0, typeLen);
                                     }
 
                                     ++fieldNumber_readed;
@@ -235,6 +246,11 @@ int initField(Entity* const entityInst, reg* const fieldNumber, const TYPEOF_STR
                                 }, M_EMPTY, M_EMPTY, "initField: fieldNumber: &d,  is too long than allocated fields_count: %d", fieldNumber_readed, fields_count);
 
     return ENTITY_ERROR;
+}
+
+int initFieldPointer(Entity* const entityInst, reg* const fieldNumber, const TYPEOF_STRUCT(EntityField, bitFlags) bitFlags, const TYPEOF_STRUCT(EntityField, shift) shift, const TYPEOF_STRUCT(EntityField, type) type, const char descr[ENTITY_DESCRIPTION_SIZE], reg* const field_ptr)
+{
+	return initField(entityInst, fieldNumber, bitFlags | ENTITY_POINTER_MSK, shift, type, descr, field_ptr);
 }
 
 
@@ -249,41 +265,48 @@ int initFieldArray(Entity* const entityInst, reg* const fieldNumber, TYPEOF_STRU
 
     reg fieldNumber_readed = (*fieldNumber);
     const TYPEOF_STRUCT(Entity, fields_count) fields_count          = entityInst->fields_count;
-    const reg typeLen = getMYCTypeLen(type);
 
-    M_Assert_BreakElseSaveCheck((fields_count > (fieldNumber_readed + arrayLen)), {
+	reg typeLen;
+#ifdef USE_ENTITY_POINTER
+	if(bitFlags & ENTITY_POINTER_MSK) {
+		typeLen = sizeof(reg);
+	} else {
+#endif /* USE_ENTITY_REGISTER */
+		typeLen = getMYCTypeLen(type);
+#ifdef USE_ENTITY_POINTER
+	}
+#endif /* USE_ENTITY_REGISTER */
 
-                                    char str[(ENTITY_DESCRIPTION_SIZE + 8) + 1] = {};
-                                    bitFlags |= ENTITY_ARRAY_MSK;
-                                    for(int i = 0; i < arrayLen; ++i) {
-                                        EntityField* const    field = &entityInst->fields[fieldNumber_readed];
+    const reg need_count = (fieldNumber_readed + arrayLen);
+    M_Assert_BreakSaveCheck(fields_count < need_count, M_EMPTY, return ENTITY_ERROR, "initFieldArray: need fields Number: &d,  is too long than allocated fields_count: %d", need_count, fields_count);
 
-                                        field->bitFlags   = bitFlags;
-                                        field->shift      = shift;
-                                        field->type       = type;
+	char str[(ENTITY_DESCRIPTION_SIZE + 8) + 1] = {};
+	bitFlags |= ENTITY_ARRAY_MSK;
+	for(int i = 0; i < arrayLen; ++i) {
+		EntityField* const    field = &entityInst->fields[fieldNumber_readed];
 
-                                        if(descr) {
-                                            sprintf(str, "%s%d", descr, (i + startNum));
-                                        } else {
-                                            sprintf(str, ":[%d]", (i + startNum));
-                                        }
-                                        memcpy(field->descr, str, ENTITY_DESCRIPTION_SIZE);
-                                        //MY_CTYPE_USER_DATA_MEMCPY(ENTITY_DESCRIPTION_SIZE, (u8 *)str, (u8 *)field->descr);
+		field->bitFlags   = bitFlags;
+		field->shift      = shift;
+		field->type       = type;
 
-                                        shift += typeLen;
-                                        ++fieldNumber_readed;
-                                    }
+		if(descr) {
+			sprintf(str, "%s%d", descr, (i + startNum));
+		} else {
+			sprintf(str, ":[%d]", (i + startNum));
+		}
+		memcpy(field->descr, str, ENTITY_DESCRIPTION_SIZE);
+		//MY_CTYPE_USER_DATA_MEMCPY(ENTITY_DESCRIPTION_SIZE, (u8 *)str, (u8 *)field->descr);
 
-                                    if(field_ptr) {
-                                        pointerInit((arrayLen * typeLen), field_ptr);
-                                    }
+		shift += typeLen;
+		++fieldNumber_readed;
+	}
 
-                                    (*fieldNumber) = fieldNumber_readed;
-                                    return ENTITY_OK;
+	if(field_ptr) {
+		memset(field_ptr, 0, (arrayLen * typeLen));
+	}
 
-                                }, M_EMPTY, M_EMPTY, "initFieldArray: fieldNumber: &d,  is too long than allocated fields_count: %d", fieldNumber_readed + arrayLen, fields_count);
-
-    return ENTITY_ERROR;
+	(*fieldNumber) = fieldNumber_readed;
+	return ENTITY_OK;
 }
 
 
@@ -344,46 +367,29 @@ int initFieldCallback(Entity* const  entityInst, reg* const fieldNumber, const T
     M_Assert_BreakSaveCheck((bitFlags & ENTITY_REGISTER_MSK) && (type != REG_TYPE || type != SREG_TYPE), M_EMPTY, return ENTITY_ERROR, "initFieldCallback: with ENTITY_REGISTER_MSK flag must be REG_TYPE or SREG_TYPE types only!!!");
 #endif /* USE_ENTITY_REGISTER */
 
-    reg fieldNumber_readed = (*fieldNumber);
-    const TYPEOF_STRUCT(Entity, fields_count) fields_count          = entityInst->fields_count;
+    const reg fieldNumber_readed = (*fieldNumber);
 
-    M_Assert_BreakElseSaveCheck((fields_count > fieldNumber_readed), {
+    if(initField(entityInst, fieldNumber, bitFlags, shift, type, descr, field_ptr) == ENTITY_OK) {
+    	EntityField* const    field = &entityInst->fields[fieldNumber_readed];
 
-                                    EntityField* const    field = &entityInst->fields[fieldNumber_readed];
+#ifdef USE_ENTITY_READ_CALLBACK
+		field->rdCallback.entityCallback = readCallback;
+		field->rdCallback.context        = readContext;
+#else
+		UNUSED(readCallback);
+		UNUSED(readContext);
+#endif /* USE_ENTITY_READ_CALLBACK */
 
-                                    field->bitFlags     = bitFlags;
-                                    field->shift        = shift;
-                                    field->type         = type;
+#ifdef USE_ENTITY_WRITE_CALLBACK
+		field->wrCallback.entityCallback = writeCallback;
+		field->wrCallback.context        = writeContext;
+#else
+		UNUSED(writeCallback);
+		UNUSED(writeContext);
+#endif /* USE_ENTITY_WRITE_CALLBACK */
 
-                                #ifdef USE_ENTITY_READ_CALLBACK
-                                    field->rdCallback.entityCallback = readCallback;
-                                    field->rdCallback.context        = readContext;
-                                #else
-                                    UNUSED(readCallback);
-                                    UNUSED(readContext);
-                                #endif /* USE_ENTITY_READ_CALLBACK */
-
-                                #ifdef USE_ENTITY_WRITE_CALLBACK
-                                    field->wrCallback.entityCallback = writeCallback;
-                                    field->wrCallback.context        = writeContext;
-                                #else
-                                    UNUSED(writeCallback);
-                                    UNUSED(writeContext);
-                                #endif /* USE_ENTITY_WRITE_CALLBACK */
-
-                                    if(descr) {
-                                        memcpy(field->descr, descr, ENTITY_DESCRIPTION_SIZE);
-                                        //MY_CTYPE_USER_DATA_MEMCPY(ENTITY_DESCRIPTION_SIZE, (u8 *)descr, (u8 *)field->descr);
-                                    }
-
-                                    if(field_ptr) {
-                                        cTypePointerInit(type, (u8 *)field_ptr);
-                                    }
-
-                                    ++fieldNumber_readed;
-                                    (*fieldNumber) = fieldNumber_readed;
-                                    return ENTITY_OK;
-                                }, M_EMPTY, M_EMPTY, "initFieldCallback: fieldNumber: &d,  is too long than allocated fields_count: %d", fieldNumber_readed, fields_count);
+		return ENTITY_OK;
+    }
 
     return ENTITY_ERROR;
 }

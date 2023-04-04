@@ -45,6 +45,8 @@ typedef struct {
     sreg _18;   // platform depend type
     //------------------------------------------------------------------------------------
 
+    u8 data[10];
+    reg ptr;
 } boards_t;
 
 extern const boards_t* board_entry;
