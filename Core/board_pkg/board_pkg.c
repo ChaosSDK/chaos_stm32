@@ -1,8 +1,9 @@
 #include "board_pkg.h"
 #include "entity_manager.h"
 #include "smart_assert.h"
+#include "main.h"
 
-const boards_t* board_entry = NULL;
+boards_t* board_entry = NULL;
 
 void entityBoardInit(void)
 {
@@ -52,3 +53,18 @@ void entityBoardInit(void)
 	entry->patch	= BOARD_PATCHLEVEL;
 	board_entry 	= entry;
 }
+
+void entityBoardProceed(void)
+{
+//	static u32 lastTime = 0;
+//
+//	if((HAL_GetTick() - lastTime) > 1000) {
+//		board_entry->
+//	}
+//
+//	lastTime = HAL_GetTick();
+	board_entry->_5 = HAL_GetTick();
+	board_entry->_13 = 3.444;
+}
+
+

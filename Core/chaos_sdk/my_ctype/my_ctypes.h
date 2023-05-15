@@ -124,7 +124,7 @@ extern const reg typeLengthMappingArray[TYPE_ARRAY_LENGTH];
 /************************************************************************************
  *  Macro for user copy
  */
-STATIC_FORCEINLINE void MY_CTYPE_USER_DATA_MEMCPY(reg n, void* from, void* to)
+STATIC_FORCEINLINE void MY_CTYPE_USER_DATA_MEMCPY(reg n, const void* from, void* to)
 {
     switch (n) {
 //-------------------- NOT WORK --------------------------------------------------------
@@ -132,12 +132,13 @@ STATIC_FORCEINLINE void MY_CTYPE_USER_DATA_MEMCPY(reg n, void* from, void* to)
 //    case sizeof(u32): *(u32*)to = *(u32*)from; break;
 //    case sizeof(u16): *(u16*)to = *(u16*)from; break;
 //-------------------- NOT WORK --------------------------------------------------------
-    case sizeof(u8 ): *(u8 *)to = *(u8 *)from; break;
+    case 0: break;
+    case 1: *(u8 *)to = *(const u8 *)from; break;
     default: memcpy(to, from, n); break;
     }
 }
 
-STATIC_FORCEINLINE void MY_CTYPE_USER_DATA_REVCPY(reg n, void* from, void* to)
+STATIC_FORCEINLINE void MY_CTYPE_USER_DATA_REVCPY(reg n, const void* from, void* to)
 {
     switch (n) {
 //-------------------- NOT WORK --------------------------------------------------------
@@ -154,11 +155,13 @@ STATIC_FORCEINLINE void MY_CTYPE_USER_DATA_REVCPY(reg n, void* from, void* to)
 //        *(u16*)to = bswap16(val);
 //        break;}
 //-------------------- NOT WORK --------------------------------------------------------
-    case sizeof(u8): {
-        *(u8*)to = *(u8*)from;
+    case 0: break;
+
+    case 1: {
+        *(u8*)to = *(const u8*)from;
         break;}
     default: {
-        u8* from_ptr = (u8*)from + n - 1;
+        const u8* from_ptr = (const u8*)from + n - 1;
         u8* to_ptr   = (u8*)to;
 
         do {
@@ -174,32 +177,27 @@ STATIC_FORCEINLINE void MY_CTYPE_USER_DATA_REVCPY(reg n, void* from, void* to)
 STATIC_FORCEINLINE void MY_CTYPE_WRITE_ONCE_SIZE(volatile void *p, void *res, reg size)
 {
     switch (size) {
-    case 1: *(volatile u8  *)p = *(u8  *)res; break;
-    case 2: *(volatile u16 *)p = *(u16 *)res; break;
-    case 4: *(volatile u32 *)p = *(u32 *)res; break;
-    case 8: *(volatile u64 *)p = *(u64 *)res; break;
-    default:
-        //barrier(); /// need block all---------------------------
-        //MY_CTYPE_USER_DATA_MEMCPY(size, (u8*)res, (u8*)p);
-        memcpy((void*)p, (void*)res, size);
-        //barrier(); /// need unblock all-------------------------
-        break;
+    	case 0: break;
+    	case 1: *(volatile u8  *)p = *(u8  *)res; break;
+    	default:
+    		//barrier(); /// need block all---------------------------
+    		memcpy((void*)p, (void*)res, size);
+    		//barrier(); /// need unblock all-------------------------
+    		break;
     }
 }
 
 STATIC_FORCEINLINE void MY_CTYPE_READ_ONCE_SIZE(const volatile void *p, void *res, reg size)
 {
-    switch (size) {
-    case 1: *(u8  *)res = *(volatile u8  *)p; break;
-    case 2: *(u16 *)res = *(volatile u16 *)p; break;
-    case 4: *(u32 *)res = *(volatile u32 *)p; break;
-    case 8: *(u64 *)res = *(volatile u64 *)p; break;
-    default:
-        //barrier(); /// need block all---------------------------
-        //MY_CTYPE_USER_DATA_MEMCPY(size, (u8*)p, (u8*)res);
-        memcpy((void*)res, (void*)p, size);
-        //barrier(); /// need unblock all-------------------------
-    }
+	switch (size) {
+		case 0: break;
+		case 1: *(u8  *)res = *(volatile u8  *)p; break;
+		default:
+			//barrier(); /// need block all---------------------------
+			memcpy((void*)res, (void*)p, size);
+			//barrier(); /// need unblock all-------------------------
+			break;
+	}
 }
 
 
@@ -218,11 +216,11 @@ STATIC_FORCEINLINE void MY_CTYPE_COPY_REGISTERS(volatile reg* from, volatile reg
 
 STATIC_FORCEINLINE void MY_CTYPE_REVCOPY_REGISTERS(volatile reg* from, volatile reg* to)
 {
-    volatile reg rev;
-    volatile reg cpy = *(from);
+    reg rev;
+    reg cpy =  *((volatile reg*)(from));
 
-    MY_CTYPE_USER_DATA_REVCPY(sizeof(reg), (u8*)&cpy, (u8*)&rev);
-    MY_CTYPE_REG_CPY(to, rev);
+    MY_CTYPE_USER_DATA_REVCPY(sizeof(reg), &cpy, &rev);
+    MY_CTYPE_REG_SET(to, rev);
 }
 
 STATIC_FORCEINLINE const reg* myCTypeGetTablePointer()
@@ -240,18 +238,12 @@ STATIC_FORCEINLINE reg getMYCTypeLen(reg type)
 }
 
 
-
 // copy types -------------------------------------------------
 void cTypeMemcpy(reg type, u8* from, u8* to);
 void cTypeRevcpy(reg type, u8* from, u8* to);
 
 // init data type ---------------------------------------
-void cTypePointerInit(reg type, u8* ptr);
-
-// init data sizeof ---------------------------------------
-void pointerInit(reg n, u8* ptr);
-// fill data sizeof ---------------------------------------
-void pointerFill(reg n, u8* ptr, u8 data);
+void cTypePointerInit(const reg type, void* ptr);
 
 // string compleate------------------------------------------
 int cTypeStrnCmp(reg n, const c8* str1, const c8* str2);

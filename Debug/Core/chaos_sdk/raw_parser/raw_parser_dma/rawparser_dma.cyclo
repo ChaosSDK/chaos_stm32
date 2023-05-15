@@ -1,7 +1,7 @@
 rawparser_dma.c:50:18:rawParser_dma_new	3
 rawparser_dma.c:66:5:rawParser_dma_init	2
 rawparser_dma.c:158:5:rawParser_dma_delete	5
-rawparser_dma.c:172:13:RawParser_dma_proceedByte	15
+rawparser_dma.c:172:13:RawParser_dma_proceedByte	14
 rawparser_dma.c:410:20:RawParser_dma_proceed	7
 rawparser_dma.c:464:20:RawParser_dma_shieldFrame	11
 rawparser_dma.c:497:6:RawParser_dma_startTransmittPacket	10

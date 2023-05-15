@@ -1,7 +1,5 @@
-my_ctypes.c:35:6:cTypeMemcpy	3
-my_ctypes.c:41:6:cTypeRevcpy	4
-my_ctypes.c:48:6:cTypePointerInit	3
-my_ctypes.c:58:6:pointerInit	2
-my_ctypes.c:66:6:pointerFill	2
-my_ctypes.c:75:5:cTypeStrnCmp	3
-my_ctypes.c:85:5:cTypeStrnRevCmp	3
+my_ctypes.c:35:6:cTypeMemcpy	4
+my_ctypes.c:41:6:cTypeRevcpy	5
+my_ctypes.c:48:6:cTypePointerInit	2
+my_ctypes.c:56:5:cTypeStrnCmp	6
+my_ctypes.c:74:5:cTypeStrnRevCmp	6

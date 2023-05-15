@@ -4,4 +4,4 @@ entity_mail_service.c:33:5:entityMailService_init	2
 entity_mail_service.c:44:28:find_TheSameLetter	4
 entity_mail_service.c:57:5:EntityMailService_subscribe	10
 entity_mail_service.c:91:5:EntityMailService_unsubscribe	3
-entity_mail_service.c:110:6:EntityMailService_getStream	24
+entity_mail_service.c:110:6:EntityMailService_getStream	28

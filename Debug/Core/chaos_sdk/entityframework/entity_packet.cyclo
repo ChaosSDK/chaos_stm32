@@ -1,8 +1,9 @@
+entity_packet.c:22:3:entities_ping	1
 entity_packet.c:29:5:readEntitiesSizes	9
-entity_packet.c:61:5:readEntitiesDescriptions	13
-entity_packet.c:115:5:readEntityFields	16
-entity_packet.c:206:5:readFieldValue	22
-entity_packet.c:262:5:readSeveralFieldsValues	28
-entity_packet.c:336:5:setFieldValue	21
-entity_packet.c:377:5:setSeveralFieldsValues	29
-entity_packet.c:455:5:proceedGluedValues	49
+entity_packet.c:61:5:readEntitiesDescriptions	14
+entity_packet.c:115:5:readEntityFields	19
+entity_packet.c:206:5:readFieldValue	24
+entity_packet.c:262:5:readSeveralFieldsValues	33
+entity_packet.c:336:5:setFieldValue	23
+entity_packet.c:377:5:setSeveralFieldsValues	34
+entity_packet.c:455:5:proceedGluedValues	55

@@ -1,2 +1,2 @@
-runtime_cast_template.c:11:3:readRuntimeCast_int	18
-runtime_cast_template.c:101:5:writeRuntimeCast_int	18
+runtime_cast_template.c:11:3:readRuntimeCast_int	49
+runtime_cast_template.c:62:5:writeRuntimeCast_int	49

@@ -22,7 +22,7 @@ static EntityNonBlockPacketTable_t requestNonBlockPackTable; // in .bss
 
 void entityNonBlock_init(void)
 {
-    pointerInit(sizeof(requestNonBlockPackTable), (u8*)&requestNonBlockPackTable);
+	 memset (&requestNonBlockPackTable, 0, sizeof(requestNonBlockPackTable));
 
     for(reg i = 0; i < ENTITY_READ_SYSTEM_BOARD_COUNT; ++i) {
         requestNonBlockPackTable.lastNodes[i] = &ersys.readPool.boards[i].needReadList;

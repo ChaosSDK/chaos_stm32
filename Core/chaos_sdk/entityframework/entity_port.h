@@ -111,7 +111,7 @@
  */
 
 #ifndef USE_ENTITY_PING
-//#   define USE_ENTITY_PING
+#   define USE_ENTITY_PING
 #endif /* USE_ENTITY_PING */
 
 
@@ -235,6 +235,9 @@
 
 // entity read type dimensions
 #define ENTITY_READ_DIMENSIONS      0x0AU
+
+// entity ping cmd
+#define ENTITY_PING_CMD      		0x0BU
 
 
 

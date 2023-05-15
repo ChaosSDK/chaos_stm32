@@ -49,8 +49,9 @@ typedef struct {
     reg ptr;
 } boards_t;
 
-extern const boards_t* board_entry;
+extern boards_t* board_entry;
 
 void entityBoardInit(void);
+void entityBoardProceed(void);
 
 #endif /* BOARD_PKG_H_ */

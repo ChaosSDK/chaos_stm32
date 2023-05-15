@@ -1,6 +1,6 @@
-entity_read_base.c:17:5:setEntityReadParent_uni	3
-entity_read_base.c:30:5:setEntityReadParent_sreg	5
-entity_read_base.c:51:5:setEntityReadParent_reg	4
+entity_read_base.c:17:5:setEntityReadParent_uni	4
+entity_read_base.c:30:5:setEntityReadParent_sreg	6
+entity_read_base.c:51:5:setEntityReadParent_reg	5
 entity_read_base.c:106:1:getEntityReadChield_u8	1
 entity_read_base.c:106:1:setEntityReadChield_u8	6
 entity_read_base.c:107:1:getEntityReadChield_u16	1

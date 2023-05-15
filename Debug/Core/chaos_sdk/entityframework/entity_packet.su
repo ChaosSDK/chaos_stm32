@@ -1,3 +1,4 @@
+../Core/chaos_sdk/entityframework/entity_packet.c:22:3:entities_ping	4	static
 ../Core/chaos_sdk/entityframework/entity_packet.c:29:5:readEntitiesSizes	40	static
 ../Core/chaos_sdk/entityframework/entity_packet.c:61:5:readEntitiesDescriptions	64	static
 ../Core/chaos_sdk/entityframework/entity_packet.c:115:5:readEntityFields	96	static

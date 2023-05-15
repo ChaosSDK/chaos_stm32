@@ -78,7 +78,7 @@ void deleteEntities(void)
     }
 
     free(entityInfo.entities);
-    pointerInit(sizeof(entityInfo), (u8*)&entityInfo);
+    memset(&entityInfo, 0, sizeof(entityInfo));
 }
 
 
@@ -247,12 +247,6 @@ int initField(Entity* const entityInst, reg* const fieldNumber, const TYPEOF_STR
 
     return ENTITY_ERROR;
 }
-
-int initFieldPointer(Entity* const entityInst, reg* const fieldNumber, const TYPEOF_STRUCT(EntityField, bitFlags) bitFlags, const TYPEOF_STRUCT(EntityField, shift) shift, const TYPEOF_STRUCT(EntityField, type) type, const char descr[ENTITY_DESCRIPTION_SIZE], reg* const field_ptr)
-{
-	return initField(entityInst, fieldNumber, bitFlags | ENTITY_POINTER_MSK, shift, type, descr, field_ptr);
-}
-
 
 /// init field-array
 int initFieldArray(Entity* const entityInst, reg* const fieldNumber, TYPEOF_STRUCT(EntityField, bitFlags) bitFlags, TYPEOF_STRUCT(EntityField, shift) shift, const TYPEOF_STRUCT(EntityField, type) type, const int arrayLen, const char descr[ENTITY_DESCRIPTION_SIZE], void* const field_ptr, const int startNum)

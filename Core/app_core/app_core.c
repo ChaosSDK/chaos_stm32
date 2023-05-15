@@ -20,5 +20,6 @@ void app_main(void)
 	//protocolAllTest(44, 100, TESTER_ENDIAN | TESTER_CONVERT | TESTER_RAW_P_GEN |TESTER_RAW_P_IT | TESTER_RAW_P_DMA);
 	while(1) {
 		proceedIncommingMessage();
+		entityBoardProceed();
 	}
 }
