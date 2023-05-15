@@ -37,21 +37,21 @@
 #endif /* Atomic platform set */
 
 
-STATIC_FORCEINLINE void __irqDis(b flag)
+STATIC_FORCEINLINE void __irqDis(const b flag)
 {
     if (flag) {
         ENTITY_ATOMIC_DISABLE_IRQ();
     }
 }
 
-STATIC_FORCEINLINE void __irqEn(b flag)
+STATIC_FORCEINLINE void __irqEn(const b flag)
 {
     if (flag) {
         ENTITY_ATOMIC_ENABLE_IRQ();
     }
 }
 
-STATIC_FORCEINLINE reg __irqDisGetPrimask(b flag)
+STATIC_FORCEINLINE reg __irqDisGetPrimask(const b flag)
 {
     reg result;
     if (flag) {
@@ -61,7 +61,7 @@ STATIC_FORCEINLINE reg __irqDisGetPrimask(b flag)
     return result;
 }
 
-STATIC_FORCEINLINE void __irqSetPrimask(b flag, reg priMask)
+STATIC_FORCEINLINE void __irqSetPrimask(const b flag, const reg priMask)
 {
     if (flag) {
         ENTITY_ATOMIC_SET_IRQ_PRIMASK(priMask);

@@ -215,30 +215,33 @@ int initField(Entity* const entityInst, reg* const fieldNumber, const TYPEOF_STR
 
     M_Assert_BreakElseSaveCheck((fields_count > fieldNumber_readed), {
                                     EntityField* const    field = &entityInst->fields[fieldNumber_readed];
+                                    M_Assert_BreakSaveCheck((field == NULLPTR(EntityField *)), M_EMPTY, return ENTITY_ERROR, "initField: No valid field");
 
                                     field->bitFlags     = bitFlags;
                                     field->shift        = shift;
                                     field->type         = type;
 
+                                    void* ptr = entityInst->pointer + shift;
+                                    M_Assert_BreakSaveCheck((ptr == NULL), M_EMPTY, return ENTITY_ERROR, "initField: No valid pointer");
+                                    M_Assert_BreakSaveCheck(
+                                    		( getMYCTypeLen(type) > sizeof(reg) ) &&
+											( (reg)ptr & (sizeof(reg) - 1) 			), M_EMPTY, return ENTITY_ERROR, "initField: Alignment error!!!");
+
+
+                                    // write description to field
                                     if(descr) {
                                         memcpy(field->descr, descr, ENTITY_DESCRIPTION_SIZE);
-                                        //MY_CTYPE_USER_DATA_MEMCPY(ENTITY_DESCRIPTION_SIZE, (u8 *)descr, (u8 *)field->descr);
                                     }
 
+                                    // init field to zero
                                     if(field_ptr) {
-                                    	reg typeLen;
 #ifdef USE_ENTITY_POINTER
-										if(bitFlags & ENTITY_POINTER_MSK) {
-											typeLen = sizeof(reg);
-										} else {
-#endif /* USE_ENTITY_REGISTER */
-											typeLen = getMYCTypeLen(type);
-#ifdef USE_ENTITY_POINTER
-										}
-#endif /* USE_ENTITY_REGISTER */
-
-                                    	memset(field_ptr, 0, typeLen);
+                                    	memset(field_ptr, 0, (bitFlags & ENTITY_POINTER_MSK) ? sizeof(reg) : getMYCTypeLen(type));
+#else
+                                    	memset(field_ptr, 0, getMYCTypeLen(type));
+#endif /* USE_ENTITY_POINTER */
                                     }
+
 
                                     ++fieldNumber_readed;
                                     (*fieldNumber) = fieldNumber_readed;
@@ -260,16 +263,11 @@ int initFieldArray(Entity* const entityInst, reg* const fieldNumber, TYPEOF_STRU
     reg fieldNumber_readed = (*fieldNumber);
     const TYPEOF_STRUCT(Entity, fields_count) fields_count          = entityInst->fields_count;
 
-	reg typeLen;
 #ifdef USE_ENTITY_POINTER
-	if(bitFlags & ENTITY_POINTER_MSK) {
-		typeLen = sizeof(reg);
-	} else {
-#endif /* USE_ENTITY_REGISTER */
-		typeLen = getMYCTypeLen(type);
-#ifdef USE_ENTITY_POINTER
-	}
-#endif /* USE_ENTITY_REGISTER */
+	const reg typeLen = (bitFlags & ENTITY_POINTER_MSK) ? sizeof(reg) : getMYCTypeLen(type);
+#else
+	const reg typeLen = getMYCTypeLen(type);
+#endif /* USE_ENTITY_POINTER */
 
     const reg need_count = (fieldNumber_readed + arrayLen);
     M_Assert_BreakSaveCheck(fields_count < need_count, M_EMPTY, return ENTITY_ERROR, "initFieldArray: need fields Number: &d,  is too long than allocated fields_count: %d", need_count, fields_count);
@@ -278,18 +276,27 @@ int initFieldArray(Entity* const entityInst, reg* const fieldNumber, TYPEOF_STRU
 	bitFlags |= ENTITY_ARRAY_MSK;
 	for(int i = 0; i < arrayLen; ++i) {
 		EntityField* const    field = &entityInst->fields[fieldNumber_readed];
+		M_Assert_BreakSaveCheck((field == NULLPTR(EntityField *)), M_EMPTY, return ENTITY_ERROR, "initFieldArray: No valid field");
 
 		field->bitFlags   = bitFlags;
 		field->shift      = shift;
 		field->type       = type;
 
+		// check pointer
+		void* ptr = entityInst->pointer + shift;
+		M_Assert_BreakSaveCheck((ptr == NULL), M_EMPTY, return ENTITY_ERROR, "initFieldArray: No valid pointer");
+		M_Assert_BreakSaveCheck(
+		                                    		( getMYCTypeLen(type) > sizeof(reg) ) &&
+													( (reg)ptr & (sizeof(reg) - 1) 			), M_EMPTY, return ENTITY_ERROR, "initFieldArray: Alignment error!!!");
+
+
+		// copy array descr
 		if(descr) {
 			sprintf(str, "%s%d", descr, (i + startNum));
 		} else {
 			sprintf(str, ":[%d]", (i + startNum));
 		}
 		memcpy(field->descr, str, ENTITY_DESCRIPTION_SIZE);
-		//MY_CTYPE_USER_DATA_MEMCPY(ENTITY_DESCRIPTION_SIZE, (u8 *)str, (u8 *)field->descr);
 
 		shift += typeLen;
 		++fieldNumber_readed;

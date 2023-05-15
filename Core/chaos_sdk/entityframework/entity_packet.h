@@ -76,18 +76,14 @@ STATIC_FORCEINLINE void proceedReadEntity(const TYPEOF_STRUCT(EntityField, bitFl
 #if defined(USE_ENTITY_POINTER) && defined(USE_ENTITY_REGISTER)
 
                                     if((bitFlags & ENTITY_POINTER_MSK) && (bitFlags & ENTITY_REGISTER_MSK)) {
+										const void* reg_ptr_from = ptr ? (const void*) (* REG_TYPE_DC(ptr)) : 0;
 
-                                    	if(ptr) {
-                                    		const void* reg_ptr_from = (const void*) (* REG_TYPE_DC(ptr));
-
-                                    		if(reg_ptr_from) {
-												const reg dta = MY_CTYPE_REG_GET(reg_ptr_from);
-												ENTITY_BYTE_CPY(sizeof(reg), &dta, outputData);
-												return;
-											}
-                                    	}
-
-                                        memset(outputData, 0, sizeof(reg));
+										if(reg_ptr_from) {
+											const reg dta = MY_CTYPE_REG_GET(reg_ptr_from);
+											ENTITY_BYTE_CPY(sizeof(reg), &dta, outputData);
+										} else {
+											memset(outputData, 0, sizeof(reg));
+										}
                                     }
 
                                     else
@@ -110,17 +106,13 @@ STATIC_FORCEINLINE void proceedReadEntity(const TYPEOF_STRUCT(EntityField, bitFl
 #if defined(USE_ENTITY_POINTER)
 
                                     if((bitFlags) & ENTITY_POINTER_MSK) {
+										const void* reg_ptr_from = ptr ? (const void *)(* REG_TYPE_DC(ptr)) : 0;
 
-                                    	if(ptr) {
-                                    		const void* reg_ptr_from = (const void *)(* REG_TYPE_DC(ptr));
-
-											if(reg_ptr_from) {
-												ENTITY_BYTE_CPY(typeLen, reg_ptr_from, outputData);
-												return;
-											}
+										if(reg_ptr_from) {
+											ENTITY_BYTE_CPY(typeLen, reg_ptr_from, outputData);
+										} else {
+											memset(outputData, 0, typeLen);
 										}
-
-                                        memset(outputData, 0, typeLen);
                                     }
 
                                     else
