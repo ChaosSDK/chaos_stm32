@@ -113,6 +113,7 @@
 #define MY_CTYPE_REG_CLR_BIT(_r, _b)    (*((volatile reg*)(_r)) &= ~(_b))
 #define MY_CTYPE_REG_SET(_r, _d)        (*((volatile reg*)(_r))  =  (_d))
 #define MY_CTYPE_REG_CPY(_r, _d)        (*((volatile reg*)(_r))  =  *((volatile reg*)(_d)))
+#define MY_CTYPE_REG_GET(_r)        	(*((volatile reg*)(_r)))
 
 
 /************************************************************************************

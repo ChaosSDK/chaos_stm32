@@ -111,7 +111,7 @@
  */
 
 #ifndef USE_ENTITY_PING
-#   define USE_ENTITY_PING
+//#   define USE_ENTITY_PING
 #endif /* USE_ENTITY_PING */
 
 

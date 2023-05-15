@@ -11,4 +11,3 @@
 ../Core/chaos_sdk/entityframework/entity_manager.c:392:5:entityInitCallback	48	static
 ../Core/chaos_sdk/entityframework/entity_manager.c:426:5:entityInitCallback_txt	56	static
 ../Core/chaos_sdk/entityframework/entity_manager.c:472:5:foreachEntities	64	static
-../Core/chaos_sdk/entityframework/entity_manager.c:501:6:setEntityReadyState	16	static

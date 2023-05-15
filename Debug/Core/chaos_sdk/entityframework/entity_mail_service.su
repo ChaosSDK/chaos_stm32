@@ -4,4 +4,4 @@ C:/Users/admin/Documents/STM32/f407ve_chaos_sdk/Core/chaos_sdk/algorithms-in-c/I
 ../Core/chaos_sdk/entityframework/entity_mail_service.c:44:28:find_TheSameLetter	32	static
 ../Core/chaos_sdk/entityframework/entity_mail_service.c:57:5:EntityMailService_subscribe	72	static
 ../Core/chaos_sdk/entityframework/entity_mail_service.c:91:5:EntityMailService_unsubscribe	40	static
-../Core/chaos_sdk/entityframework/entity_mail_service.c:110:6:EntityMailService_getStream	208	static
+../Core/chaos_sdk/entityframework/entity_mail_service.c:110:6:EntityMailService_getStream	216	static

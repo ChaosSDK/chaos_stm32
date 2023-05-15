@@ -66,7 +66,7 @@ int proceedGluedValues(u8* const inputData, u8* const outputData, reg* const siz
  * Help functions for read and wrire entity if exists pointer to data, len and bit flags
  *
  */
-STATIC_FORCEINLINE void proceedReadEntity(const TYPEOF_STRUCT(EntityField, bitFlags) bitFlags, void* ptr, u8* outputData, const reg typeLen)
+STATIC_FORCEINLINE void proceedReadEntity(const TYPEOF_STRUCT(EntityField, bitFlags) bitFlags, const void* ptr, u8* outputData, const reg typeLen)
 {
 
 #ifdef USE_ENTITY_ATOMIC
@@ -76,11 +76,18 @@ STATIC_FORCEINLINE void proceedReadEntity(const TYPEOF_STRUCT(EntityField, bitFl
 #if defined(USE_ENTITY_POINTER) && defined(USE_ENTITY_REGISTER)
 
                                     if((bitFlags & ENTITY_POINTER_MSK) && (bitFlags & ENTITY_REGISTER_MSK)) {
-                                        volatile reg* reg_ptr_from = (volatile reg*) (* REG_TYPE_DC(ptr));
-                                        volatile reg* reg_ptr_to   = (volatile reg*) (  outputData);
-                                        if(reg_ptr_from) {
-                                            ENTITY_REG_CPY(reg_ptr_from, reg_ptr_to);
-                                        }
+
+                                    	if(ptr) {
+                                    		const void* reg_ptr_from = (const void*) (* REG_TYPE_DC(ptr));
+
+                                    		if(reg_ptr_from) {
+												const reg dta = MY_CTYPE_REG_GET(reg_ptr_from);
+												ENTITY_BYTE_CPY(sizeof(reg), &dta, outputData);
+												return;
+											}
+                                    	}
+
+                                        memset(outputData, 0, sizeof(reg));
                                     }
 
                                     else
@@ -91,9 +98,8 @@ STATIC_FORCEINLINE void proceedReadEntity(const TYPEOF_STRUCT(EntityField, bitFl
 #if defined(USE_ENTITY_REGISTER)
 
                                     if((bitFlags) & ENTITY_REGISTER_MSK) {
-                                        volatile reg* reg_ptr_from = ((volatile reg*) (ptr));
-                                        volatile reg* reg_ptr_to   = ((volatile reg*) (outputData));
-                                        ENTITY_REG_CPY(reg_ptr_from, reg_ptr_to);
+                                    	const reg dta = ptr ? MY_CTYPE_REG_GET(ptr) : 0;
+                                    	ENTITY_BYTE_CPY(sizeof(reg), &dta, outputData);
                                     }
 
                                     else
@@ -104,10 +110,17 @@ STATIC_FORCEINLINE void proceedReadEntity(const TYPEOF_STRUCT(EntityField, bitFl
 #if defined(USE_ENTITY_POINTER)
 
                                     if((bitFlags) & ENTITY_POINTER_MSK) {
-                                        u8* reg_ptr_from = (u8 *)(* REG_TYPE_DC(ptr));
-                                        if(reg_ptr_from) {
-                                            ENTITY_BYTE_CPY(typeLen, reg_ptr_from, outputData);
-                                        }
+
+                                    	if(ptr) {
+                                    		const void* reg_ptr_from = (const void *)(* REG_TYPE_DC(ptr));
+
+											if(reg_ptr_from) {
+												ENTITY_BYTE_CPY(typeLen, reg_ptr_from, outputData);
+												return;
+											}
+										}
+
+                                        memset(outputData, 0, typeLen);
                                     }
 
                                     else
@@ -115,7 +128,11 @@ STATIC_FORCEINLINE void proceedReadEntity(const TYPEOF_STRUCT(EntityField, bitFl
 #endif /* defined(USE_ENTITY_POINTER) */
 
                                     {
-                                        ENTITY_BYTE_CPY(typeLen, ptr, outputData);
+                                    	if(ptr) {
+                                    		ENTITY_BYTE_CPY(typeLen, ptr, outputData);
+                                    	} else {
+                                    		memset(outputData, 0, typeLen);
+                                    	}
                                     }
 
 #ifdef USE_ENTITY_ATOMIC
@@ -124,8 +141,13 @@ STATIC_FORCEINLINE void proceedReadEntity(const TYPEOF_STRUCT(EntityField, bitFl
 
 }
 
-STATIC_FORCEINLINE void proceedWriteEntity(const TYPEOF_STRUCT(EntityField, bitFlags) bitFlags, void* ptr, u8* const inputData, reg typeLen)
+STATIC_FORCEINLINE void proceedWriteEntity(const TYPEOF_STRUCT(EntityField, bitFlags) bitFlags, void* ptr, const u8* inputData, const reg typeLen)
 {
+
+	if(!ptr) {
+		return;
+	}
+
 #ifdef USE_ENTITY_ATOMIC
     ATOMIC_BLOCK_RESTORATE_COND((bitFlags & ENTITY_ATOMIC_MSK), {
 #endif /* USE_ENTITY_ATOMIC */
@@ -133,11 +155,13 @@ STATIC_FORCEINLINE void proceedWriteEntity(const TYPEOF_STRUCT(EntityField, bitF
 #if defined(USE_ENTITY_POINTER) && defined(USE_ENTITY_REGISTER)
 
     								if((bitFlags & ENTITY_POINTER_MSK) && (bitFlags & ENTITY_REGISTER_MSK)) {
-                                        volatile reg* reg_ptr_to        = (volatile reg*) (* REG_TYPE_DC(ptr));
-                                        volatile reg* reg_ptr_from      = (volatile reg*) (  inputData);
-                                        if(reg_ptr_to) {
-                                            ENTITY_REG_CPY(reg_ptr_from, reg_ptr_to);
-                                        }
+										void* const reg_ptr_to = (void* const) (* REG_TYPE_DC(ptr));
+
+										if(reg_ptr_to) {
+											reg dta;
+											ENTITY_BYTE_CPY(sizeof(reg), inputData, &dta);
+											MY_CTYPE_REG_SET(reg_ptr_to, dta);
+										}
                                     }
 
                                     else
@@ -148,9 +172,9 @@ STATIC_FORCEINLINE void proceedWriteEntity(const TYPEOF_STRUCT(EntityField, bitF
 #if defined(USE_ENTITY_REGISTER)
 
                                     if((bitFlags) & ENTITY_REGISTER_MSK) {
-                                        volatile reg* reg_ptr_to        = ((volatile reg*)  (ptr));
-                                        volatile reg* reg_ptr_from      = ((volatile reg*)  (inputData));
-                                        ENTITY_REG_CPY(reg_ptr_from, reg_ptr_to);
+										reg dta;
+										ENTITY_BYTE_CPY(sizeof(reg), inputData, &dta);
+										MY_CTYPE_REG_SET(ptr, dta);
                                     }
 
                                     else
@@ -161,7 +185,8 @@ STATIC_FORCEINLINE void proceedWriteEntity(const TYPEOF_STRUCT(EntityField, bitF
 #if defined(USE_ENTITY_POINTER)
 
                                     if((bitFlags) & ENTITY_POINTER_MSK) {
-                                        u8* reg_ptr_to = (u8 *)(* REG_TYPE_DC(ptr));
+
+                                        void* const reg_ptr_to = (void* const)(* REG_TYPE_DC(ptr));
                                         if(reg_ptr_to) {
                                             ENTITY_BYTE_CPY(typeLen, inputData, reg_ptr_to);
                                         }

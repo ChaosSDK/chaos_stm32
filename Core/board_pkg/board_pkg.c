@@ -5,6 +5,8 @@
 
 boards_t* board_entry = NULL;
 
+extern TIM_HandleTypeDef htim4;
+
 void entityBoardInit(void)
 {
 	reg board_entityNum = ENTITY_NUMBER_ERROR;
@@ -40,11 +42,13 @@ void entityBoardInit(void)
     initField(entity, &fieldNumber, (ENTITY_EMPTY_FLAG), offsetof(boards_t, _14), DOUBLE_TYPE,              "F14", &entry->_14);
     //initField(entity, &fieldNumber, (ENTITY_EMPTY_FLAG), offsetof(boards_t, _15), LONG_DOUBLE_TYPE,         "F15", &entry->_15);
     initField(entity, &fieldNumber, (ENTITY_EMPTY_FLAG), offsetof(boards_t, _16), BOOL_TYPE,                "F16", &entry->_16);
-    //initField(entity, &fieldNumber, (ENTITY_EMPTY_FLAG), offsetof(boards_t, _17), REG_TYPE,                 "F17", &entry->_17);
+    initField(entity, &fieldNumber, (ENTITY_POINTER_MSK | ENTITY_REGISTER_MSK), offsetof(boards_t, _17), /*REG_TYPE*/UINT32_TYPE,                 "F17", &entry->_17);
     //initField(entity, &fieldNumber, (ENTITY_EMPTY_FLAG), offsetof(boards_t, _18), SREG_TYPE,                "F18", &entry->_18);
 
     initFieldArray(entity, &fieldNumber, (ENTITY_EMPTY_FLAG), offsetof(boards_t, data), UINT8_TYPE, sizeof(entry->data), NULL, entry->data, 1);
     initFieldPointer(entity, &fieldNumber, (ENTITY_EMPTY_FLAG), offsetof(boards_t, ptr), UINT8_TYPE,                "REG", &entry->ptr);
+
+    entry->_17 = /*(reg)&entry->data[0]*/(reg)&htim4.Instance->ARR;
     entry->ptr = (reg)&entry->data[1];
 
 	entry->boardId 	= INIT_BOARD_ID;
@@ -52,6 +56,8 @@ void entityBoardInit(void)
 	entry->minor 	= BOARD_MINOR;
 	entry->patch	= BOARD_PATCHLEVEL;
 	board_entry 	= entry;
+
+	board_entry->_13 = 3.444;
 }
 
 void entityBoardProceed(void)
@@ -64,7 +70,7 @@ void entityBoardProceed(void)
 //
 //	lastTime = HAL_GetTick();
 	board_entry->_5 = HAL_GetTick();
-	board_entry->_13 = 3.444;
+	//board_entry->_13 = 3.444;
 }
 
 

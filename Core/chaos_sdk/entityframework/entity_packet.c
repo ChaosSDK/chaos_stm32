@@ -216,7 +216,7 @@ int readFieldValue(const TYPEOF_STRUCT(EntityInfo, entities_count) entityNumber,
     if((entityNumber < entities_count) && (fieldNumber < fields_count)) {
         const u8        type    = field->type;
         const reg       typeLen = getMYCTypeLen(type);
-        void* const     ptr     = (entity->pointer + field->shift);
+        void*     ptr     = (entity->pointer + field->shift);
 
         reg pos = 0;
 

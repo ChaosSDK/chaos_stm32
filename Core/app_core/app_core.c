@@ -18,6 +18,15 @@ void app_main(void)
 	init_stm32_communicator();
 	// protocolAllTest(44, 100, (TESTER_CRC | TESTER_ENDIAN | TESTER_CONVERT | TESTER_RAW_P_DMA | TESTER_REED_SOLOMON_ECC | TESTER_CALLBACK_MANAGER | TESTER_PULL_CONTAINER | TESTER_RAW_P_IT | TESTER_RAW_P_GEN));
 	//protocolAllTest(44, 100, TESTER_ENDIAN | TESTER_CONVERT | TESTER_RAW_P_GEN |TESTER_RAW_P_IT | TESTER_RAW_P_DMA);
+
+
+//	char rrr[16] = {};
+//	u32 a = *((u32*)&rrr[3]);
+//
+//	if(a == 0) {
+//		int b =0;
+//	}
+
 	while(1) {
 		proceedIncommingMessage();
 		entityBoardProceed();
