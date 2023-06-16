@@ -23,7 +23,11 @@ RM := rm -rf
 -include Core/chaos_sdk/pool_container/subdir.mk
 -include Core/chaos_sdk/my_ctype/runtime_cast/subdir.mk
 -include Core/chaos_sdk/my_ctype/subdir.mk
+-include Core/chaos_sdk/hash/subdir.mk
 -include Core/chaos_sdk/entityframework/reader/subdir.mk
+-include Core/chaos_sdk/entityframework/mail/subdir.mk
+-include Core/chaos_sdk/entityframework/checker/subdir.mk
+-include Core/chaos_sdk/entityframework/backup/subdir.mk
 -include Core/chaos_sdk/entityframework/subdir.mk
 -include Core/chaos_sdk/crc/subdir.mk
 -include Core/chaos_sdk/convert/subdir.mk

@@ -12,7 +12,7 @@
 
 #include "entity_port.h"
 
-#ifdef USE_ENTITY_ATOMIC
+#if defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_ATOMIC)
 
 #include "my_ctypes.h"
 
@@ -97,6 +97,6 @@ STATIC_FORCEINLINE void __irqSetPrimask(const b flag, const reg priMask)
 #define ATOMIC_BLOCK_RESTORATE(expression)	ATOMIC_BLOCK_RESTORATE_COND(1, expression)
 
 
-#endif /* USE_ENTITY_ATOMIC */
+#endif /* defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_ATOMIC) */
 
 #endif /* ENTITY_ATOMIC_H */

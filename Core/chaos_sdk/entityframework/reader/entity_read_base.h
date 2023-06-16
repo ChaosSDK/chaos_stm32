@@ -3,9 +3,7 @@
 
 #include "entity_port.h"
 
-#ifdef C_ENTITY_FRAMEWORK_LIB_ENA
-
-#ifdef USE_ENTITY_READ_SERVICE
+#if defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE)
 
 #include "entity_manager.h"
 #include "entity_write_parent_pool.h"
@@ -172,8 +170,6 @@ DECLARE_ENTITY_READ_CHIELD_TYPE(sreg, i64);
 
 
 
-#endif /* USE_ENTITY_READ_SERVICE */
-
-#endif /* C_ENTITY_FRAMEWORK_LIB_ENA */
+#endif /* defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE) */
 
 #endif /* ENTITY_READ_BASEH_H */

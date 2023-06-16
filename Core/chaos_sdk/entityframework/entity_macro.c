@@ -1,5 +1,7 @@
 #include "entity_macro.h"
 
+#ifdef C_ENTITY_FRAMEWORK_LIB_ENA
+
 typedef struct {
     u8  _name1;
 } parent1;
@@ -36,3 +38,6 @@ int entityMactoTest()
 }
 
 #undef ENTITY_TUPLE
+
+
+#endif /* C_ENTITY_FRAMEWORK_LIB_ENA */

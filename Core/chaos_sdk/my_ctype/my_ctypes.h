@@ -230,7 +230,7 @@ STATIC_FORCEINLINE const reg* myCTypeGetTablePointer()
 }
 
 
-STATIC_FORCEINLINE reg getMYCTypeLen(reg type)
+STATIC_FORCEINLINE const reg getMYCTypeLen(const reg type)
 {
     if(type < TYPE_ARRAY_LENGTH) {
         return typeLengthMappingArray[type];

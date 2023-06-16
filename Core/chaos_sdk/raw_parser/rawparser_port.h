@@ -111,13 +111,8 @@ typedef struct {
 #   if defined(D_RAW_P_USE_CRC8) && defined(_MY_CRC8_ENA)
         typedef u8 rawP_crc_t;
 #
-#   if defined(_MY_CRC8_TABLE_CALC_ENA)
-#           define D_RAW_P_CRC_ARRAY(data, len)  fast_crc8_maxim_array((data), (len))
-#           define D_RAW_P_CRC_UPDATE(crc, data) fast_crc8_maxim_byte((crc), (data))
-#       else
-#           define D_RAW_P_CRC_ARRAY(data, len)  slow_crc8_maxim_array((data), (len))
-#           define D_RAW_P_CRC_UPDATE(crc, data) slow_crc8_maxim_byte((crc), (data))
-#       endif /* D_RAW_P_USE_CRC_TABLE_FAST */
+#       define D_RAW_P_CRC_ARRAY(data, len)  _MY_CRC8_ARRAY((data), (len))
+#       define D_RAW_P_CRC_UPDATE(crc, data) _MY_CRC8_BYTE((crc), (data))
 #
 #       define D_RAW_P_CRC_START(crc) CRC8START(crc)
 #       define D_RAW_P_CRC_INIT CRC8INIT
@@ -126,13 +121,8 @@ typedef struct {
 #   elif defined(D_RAW_P_USE_CRC16) && defined(_MY_CRC16_ENA)
         typedef u16 rawP_crc_t;
 #
-#       if defined(_MY_CRC16_TABLE_CALC_ENA)
-#           define D_RAW_P_CRC_ARRAY(data, len)  fast_crc16_t10_dif_array((data), (len))
-#           define D_RAW_P_CRC_UPDATE(crc, data) fast_crc16_t10_dif_byte((crc), (data))
-#       else
-#           define D_RAW_P_CRC_ARRAY(data, len)  slow_crc16_t10_dif_array((data), (len))
-#           define D_RAW_P_CRC_UPDATE(crc, data) slow_crc16_t10_dif_byte((crc), (data))
-#       endif /* D_RAW_P_USE_CRC_TABLE_FAST */
+#       define D_RAW_P_CRC_ARRAY(data, len)  _MY_CRC16_ARRAY((data), (len))
+#       define D_RAW_P_CRC_UPDATE(crc, data) _MY_CRC16_BYTE((crc), (data))
 #
 #       define D_RAW_P_CRC_START(crc) CRC16START(crc)
 #       define D_RAW_P_CRC_INIT CRC16INIT
@@ -141,13 +131,8 @@ typedef struct {
 #   elif defined(D_RAW_P_USE_CRC32) && defined(_MY_CRC32_ENA)
         typedef u32 rawP_crc_t;
 #
-#       if defined(_MY_CRC32_TABLE_CALC_ENA)
-#           define D_RAW_P_CRC_ARRAY(data, len)  fast_crc32b_array((data), (len))
-#           define D_RAW_P_CRC_UPDATE(crc, data) fast_crc32b_byte((crc), (data))
-#       else
-#           define D_RAW_P_CRC_ARRAY(data, len)  slow_crc32b_array((data), (len))
-#           define D_RAW_P_CRC_UPDATE(crc, data) slow_crc32b_byte((crc), (data))
-#       endif /* defined(_MY_CRC32_TABLE_CALC_ENA) */
+#       define D_RAW_P_CRC_ARRAY(data, len)  _MY_CRC32_ARRAY((data), (len))
+#       define D_RAW_P_CRC_UPDATE(crc, data) _MY_CRC32_BYTE((crc), (data))
 #
 #       define D_RAW_P_CRC_START(crc) CRC32START(crc)
 #       define D_RAW_P_CRC_INIT CRC32INIT
@@ -156,13 +141,8 @@ typedef struct {
 #   elif defined(D_RAW_P_USE_CRC64) && defined(_MY_CRC64_ENA)
         typedef u64 rawP_crc_t;
 #
-#       if defined(_MY_CRC64_TABLE_CALC_ENA)
-#           define D_RAW_P_CRC_ARRAY(data, len)  fast_crc64jones_array((data), (len))
-#           define D_RAW_P_CRC_UPDATE(crc, data) fast_crc64jones_byte((crc), (data))
-#       else
-#           define D_RAW_P_CRC_ARRAY(data, len)  slow_crc64jones_array((data), (len))
-#           define D_RAW_P_CRC_UPDATE(crc, data) slow_crc64jones_byte((crc), (data))
-#       endif /* defined(_MY_CRC64_TABLE_CALC_ENA) */
+#       define D_RAW_P_CRC_ARRAY(data, len)  _MY_CRC64_ARRAY((data), (len))
+#       define D_RAW_P_CRC_UPDATE(crc, data) _MY_CRC64_BYTE((crc), (data))
 #
 #       define D_RAW_P_CRC_START(crc) CRC64START(crc)
 #       define D_RAW_P_CRC_INIT CRC64INIT

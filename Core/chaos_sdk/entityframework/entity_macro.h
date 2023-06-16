@@ -1,11 +1,13 @@
 #ifndef ENTITY_MACRO_H
 #define ENTITY_MACRO_H
 
+#include "entity_manager.h"
 
+#ifdef C_ENTITY_FRAMEWORK_LIB_ENA
 #include "preprocessor.h"
 #include "my_ctypes.h"
 #include "my_ctype_id.h"
-#include "entity_manager.h"
+
 
 // TUPLE((entityName, descr, isCustomSpace, isHeap, arg, (parent1 p1; ... parentN pN;)), (type1, name1, bitFlags1, descr1, incrementSize1, fieldInitEnable1, arrayStartNumber1, specSymbol1, fieldPath1) ... (typeN, nameN, bitFlagsN, descrN, incrementSizeN, fieldInitEnableN, arrayStartNumberN, specSymbolN, fieldPathN))
 // parameter: (breakExpr, entityNumber, fieldNumber, entityPtr, structObjectPointer, structName)
@@ -152,5 +154,6 @@
 
 int entityMactoTest();
 
+#endif /* C_ENTITY_FRAMEWORK_LIB_ENA */
 
 #endif /* ENTITY_MACRO_H */

@@ -3,9 +3,7 @@
 
 #include "entity_port.h"
 
-#ifdef C_ENTITY_FRAMEWORK_LIB_ENA
-
-#ifdef USE_ENTITY_READ_SERVICE
+#if defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE)
 
 #include "IntrusiveLinkedList.h"
 #include "entity_read_base.h"
@@ -62,8 +60,6 @@ int entityReadPoolContainer_setReadDisable(EntityReadPoolContainer_t* const self
 int entityReadPool_foreach(EntityReadPoolContainer_t* const self,
                            int (* const predicate)(EntityReadParent_t* const field, PREPROCESSOR_CTX_TYPE(ctx)), PREPROCESSOR_CTX_TYPE(ctx));
 
-#endif /* USE_ENTITY_READ_SERVICE */
-
-#endif /* C_ENTITY_FRAMEWORK_LIB_ENA */
+#endif /* defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE) */
 
 #endif /* ENTITY_READ_PARENT_POOL_H */

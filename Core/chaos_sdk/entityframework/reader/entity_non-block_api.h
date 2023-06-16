@@ -3,9 +3,8 @@
 
 #include "entity_port.h"
 
-#ifdef C_ENTITY_FRAMEWORK_LIB_ENA
+#if defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE)
 
-#ifdef USE_ENTITY_READ_SERVICE
 #include "entity_read_system.h"
 
 #define ENTITY_READ_NONBLOCK_MAX_TIME_REQUEST 100
@@ -41,8 +40,6 @@ void entityNonBlockReceivePacket(const u16 boardNumber, u8* const inBuffer, cons
 #endif //check if power of 2 ENTITY_WRITE_API_MTU
 
 
-#endif /* USE_ENTITY_READ_SERVICE */
-
-#endif /* C_ENTITY_FRAMEWORK_LIB_ENA */
+#endif /* defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE) */
 
 #endif /* ENTITY_NONBLOCK_API_H */

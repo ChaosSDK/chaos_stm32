@@ -4,9 +4,7 @@
 #include "entity_port.h"
 
 
-#ifdef C_ENTITY_FRAMEWORK_LIB_ENA
-
-#ifdef USE_ENTITY_READ_SERVICE
+#if defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE)
 
 typedef struct EntityReadParent EntityReadParent_t;
 
@@ -63,8 +61,6 @@ STATIC_FORCEINLINE EntityReadParent_t* entityWritePoolContainer_readParent(Entit
     return parent;
 }
 
-#endif /* USE_ENTITY_READ_SERVICE */
-
-#endif /* C_ENTITY_FRAMEWORK_LIB_ENA */
+#endif /* defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE) */
 
 #endif /* ENTITY_WRITE_PARENT_POOL_H */

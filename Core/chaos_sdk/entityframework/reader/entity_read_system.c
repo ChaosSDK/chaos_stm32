@@ -2,9 +2,7 @@
 
 #include "entity_read_system.h"
 
-#ifdef C_ENTITY_FRAMEWORK_LIB_ENA
-
-#ifdef USE_ENTITY_READ_SERVICE
+#if defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE)
 
 #include "preprocessor_ctx.h"
 #include "smart_assert.h"
@@ -104,7 +102,5 @@ int initEntityReadSystem(void)
 #undef EN_RD_SYS_ASSERT
 
 
-#endif /* USE_ENTITY_READ_SERVICE */
-
-#endif /* C_ENTITY_FRAMEWORK_LIB_ENA */
+#endif /* defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE) */
 /*--------------------------------------- FILE MUST BE GENERATED (DO NOT EDIT!!!) --------------------------------------------*/

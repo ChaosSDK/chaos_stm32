@@ -1,8 +1,7 @@
 #include "entity_tests.h"
 
-#ifdef C_ENTITY_FRAMEWORK_LIB_ENA
+#if defined(C_ENTITY_FRAMEWORK_LIB_ENA) && !defined(ENTITY_TEST_DISABLE)
 
-#ifndef  ENTITY_TEST_DISABLE
 #include "entity_manager.h"
 
 #define EN_ASSERT_COUNTING(expression, counter)\
@@ -106,8 +105,8 @@ int entityTest(int randomSeed, int testCnt)
     return testNotValid;
 }
 
-#endif /* ENTITY_TEST_DISABLE */
-
-#endif /* C_ENTITY_FRAMEWORK_LIB_ENA */
-
 #undef EN_ASSERT_COUNTING
+
+#endif /* defined(C_ENTITY_FRAMEWORK_LIB_ENA) && !defined(ENTITY_TEST_DISABLE) */
+
+

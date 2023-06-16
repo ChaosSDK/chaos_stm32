@@ -43,8 +43,12 @@ Core/chaos_sdk/callback_container \
 Core/chaos_sdk/callback_manager \
 Core/chaos_sdk/convert \
 Core/chaos_sdk/crc \
+Core/chaos_sdk/entityframework/backup \
+Core/chaos_sdk/entityframework/checker \
 Core/chaos_sdk/entityframework \
+Core/chaos_sdk/entityframework/mail \
 Core/chaos_sdk/entityframework/reader \
+Core/chaos_sdk/hash \
 Core/chaos_sdk/my_ctype \
 Core/chaos_sdk/my_ctype/runtime_cast \
 Core/chaos_sdk/pool_container \

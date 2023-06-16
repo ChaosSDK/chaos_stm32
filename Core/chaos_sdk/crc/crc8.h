@@ -66,9 +66,18 @@ u8 slow_crc8_maxim_byte(u8 crc, const u8 data);
 
 #endif /* _MY_CRC8_GENERIC_CALC_ENA */
 
+
+// fastest implementation of crc8-------------------------------------------------------------------------------------
+
+#ifdef _MY_CRC8_TABLE_CALC_ENA
+#	define _MY_CRC8_ARRAY(data, len)  		fast_crc8_maxim_array((data), (len))
+#	define _MY_CRC8_BYTE(last_crc, data)  	fast_crc8_maxim_byte((last_crc), (data))
+#else
+#	define _MY_CRC8_ARRAY(data, len)  		slow_crc8_maxim_array((data), (len))
+#	define _MY_CRC8_BYTE(last_crc, data)  	slow_crc8_maxim_byte((last_crc), (data))
+#endif /* _MY_CRC8_TABLE_CALC_ENA */
+
 #endif /* _MY_CRC8_ENA*/
-
-
 
 //---------------------------------------------------------------------
 #endif /* __CRC8_DALLAS_MAXIM_H__ */

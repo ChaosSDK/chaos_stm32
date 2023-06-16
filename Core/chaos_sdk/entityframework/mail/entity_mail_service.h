@@ -3,9 +3,7 @@
 
 #include "entity_port.h"
 
-#ifdef C_ENTITY_FRAMEWORK_LIB_ENA
-
-#ifdef USE_ENTITY_MAIL_SERVICE
+#if defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_MAIL_SERVICE)
 
 #include "entity_manager.h"
 #include "IntrusiveLinkedList.h"
@@ -48,9 +46,6 @@ void EntityMailService_getStream(EntityMailService_t* const self, u32 time,
 #endif /* ENTITY_MAIL_MTU > 255 */
 //----------------------------------------------------------------------
 
-
-#endif /* USE_ENTITY_MAIL_SERVICE */
-
-#endif /* C_ENTITY_FRAMEWORK_LIB_ENA */
+#endif /* defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_MAIL_SERVICE) */
 
 #endif /* ENTITY_MAIL_SERVICE_H */

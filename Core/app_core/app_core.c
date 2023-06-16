@@ -4,8 +4,10 @@
 #include "stm32_comm.h"
 #include "protocol_test.h"
 #include "entity_manager.h"
+#include "entity_checker.h"
 
 #include "board_pkg.h"
+#include "sha-256_test.h"
 
 
 void app_main(void)
@@ -26,6 +28,12 @@ void app_main(void)
 //	if(a == 0) {
 //		int b =0;
 //	}
+
+	checkEntities();
+
+	/* Read MCU Id, 32-bit access */
+	//u32 MCU_Id = DBGMCU->IDCODE;
+	sha256_test();
 
 	while(1) {
 		proceedIncommingMessage();

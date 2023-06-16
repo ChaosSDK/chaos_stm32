@@ -27,9 +27,9 @@
 /* **********************************************************************************************************************************
  * Entity test enable/disable
  */
-#ifndef ENTITY_DESCRIPTION_SIZE
+#ifndef ENTITY_TEST_DISABLE
 //#   define ENTITY_TEST_DISABLE 	1
-#endif /* ENTITY_DESCRIPTION_SIZE */
+#endif /* ENTITY_TEST_DISABLE */
 
 
 /* **********************************************************************************************************************************
@@ -188,6 +188,10 @@
 #   define USE_ENTITY_READ_SERVICE
 #endif /* USE_ENTITY_READ_SERVICE */
 
+#ifndef USE_ENTITY_BACKUP_SERVICE
+#   define USE_ENTITY_BACKUP_SERVICE
+#endif /* USE_ENTITY_BACKUP_SERVICE */
+
 /* **********************************************************************************************************************************
  *  Macro for Defining Entity Copy function (Platform depent)
  * **********************************************************************************************************************************
@@ -226,9 +230,8 @@
 #define READ_SEVERAL_VALUES_GLUED 	0x06U
 #define WRITE_SEVERAL_VALUES_GLUED 	0x07U
 #define SEVERAL_VALUES_GLUED_END 	0x09U
-// flash operations
-#define ENTITY_FLASH_OPERATION 		0x08U
-// flash operations
+// backup operations
+#define ENTITY_BACKUP_OPERATION 		0x08U
 
 // mail service for stream from device
 #define ENTITY_MAIL_SERVICE_PACK    0x33U

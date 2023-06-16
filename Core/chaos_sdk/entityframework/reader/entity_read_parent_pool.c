@@ -1,9 +1,7 @@
 #include "entity_read_parent_pool.h"
 
 
-#ifdef C_ENTITY_FRAMEWORK_LIB_ENA
-
-#ifdef USE_ENTITY_READ_SERVICE
+#if defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE)
 #include "entity_read_system.h"
 #include "smart_assert.h"
 #include <stdlib.h>
@@ -272,6 +270,4 @@ int entityReadPool_foreach(EntityReadPoolContainer_t* const self,
     return 1;
 }
 
-#endif /* USE_ENTITY_READ_SERVICE */
-
-#endif /* C_ENTITY_FRAMEWORK_LIB_ENA */
+#endif /* defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE) */

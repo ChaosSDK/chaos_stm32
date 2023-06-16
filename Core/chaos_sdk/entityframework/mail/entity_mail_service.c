@@ -1,9 +1,7 @@
 #include "entity_mail_service.h"
 
 
-#ifdef C_ENTITY_FRAMEWORK_LIB_ENA
-
-#ifdef USE_ENTITY_MAIL_SERVICE
+#if defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_MAIL_SERVICE)
 
 #include "entity_packet.h"
 #include "smart_assert.h"
@@ -168,7 +166,5 @@ void EntityMailService_getStream(EntityMailService_t* const self, u32 time,
     }
 }
 
-#endif /* USE_ENTITY_MAIL_SERVICE */
-
-#endif /* C_ENTITY_FRAMEWORK_LIB_ENA */
+#endif /* defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_MAIL_SERVICE) */
 

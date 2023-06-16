@@ -1,8 +1,6 @@
 #include "entity_write_parent_pool.h"
 
-#ifdef C_ENTITY_FRAMEWORK_LIB_ENA
-
-#ifdef USE_ENTITY_READ_SERVICE
+#if defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE)
 #include "smart_assert.h"
 #include <stdlib.h>
 
@@ -50,6 +48,4 @@ int entityWritePoolContainer_delete(EntityWritePoolContainer_t** const self, con
 }
 
 
-#endif /* USE_ENTITY_READ_SERVICE */
-
-#endif /* C_ENTITY_FRAMEWORK_LIB_ENA */
+#endif /* defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE) */

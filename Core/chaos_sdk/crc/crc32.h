@@ -85,6 +85,18 @@ u32 slow_crc32b_byte(u32 crc, const u8 data);               //must ~crc if last 
 
 #endif /*_MY_CRC32_GENERIC_CALC_ENA */
 
+
+
+// fastest implementation of crc32-------------------------------------------------------------------------------------
+#ifdef _MY_CRC16_TABLE_CALC_ENA
+#	define _MY_CRC32_ARRAY(data, len)  		fast_crc32b_array((data), (len))
+#	define _MY_CRC32_BYTE(last_crc, data)  	fast_crc32b_byte((last_crc), (data))
+#else
+#	define _MY_CRC32_ARRAY(data, len)  		slow_crc32b_array((data), (len))
+#	define _MY_CRC32_BYTE(last_crc, data)  	slow_crc32b_byte((last_crc), (data))
+#endif /* _MY_CRC16_TABLE_CALC_ENA */
+
+
 #endif /* _MY_CRC32_ENA */
 
 

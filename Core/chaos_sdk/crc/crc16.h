@@ -64,6 +64,18 @@ u16 fast_crc16_t10_dif_byte(const u16 crc, const u8 data);
 u16 slow_crc16_t10_dif_array(u8 * data, unsigned int len);
 u16 slow_crc16_t10_dif_byte(u16 crc, const u8 data);
 
+
+
+// fastest implementation of crc16-------------------------------------------------------------------------------------
+#ifdef _MY_CRC16_TABLE_CALC_ENA
+#	define _MY_CRC16_ARRAY(data, len)  		fast_crc16_t10_dif_array((data), (len))
+#	define _MY_CRC16_BYTE(last_crc, data)  	fast_crc16_t10_dif_byte((last_crc), (data))
+#else
+#	define _MY_CRC16_ARRAY(data, len)  		slow_crc16_t10_dif_array((data), (len))
+#	define _MY_CRC16_BYTE(last_crc, data)  	slow_crc16_t10_dif_byte((last_crc), (data))
+#endif /* _MY_CRC16_TABLE_CALC_ENA */
+
+
 #endif /* _MY_CRC16_GENERIC_CALC_ENA */
 
 #endif /* _MY_CRC16_ENA */

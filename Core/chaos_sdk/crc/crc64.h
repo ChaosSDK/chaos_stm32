@@ -84,6 +84,18 @@ u64 slow_crc64jones_byte(u64 crc, const u8 data);
 
 #endif /* _MY_CRC64_GENERIC_CALC_ENA */
 
+
+
+// fastest implementation of crc64-------------------------------------------------------------------------------------
+#ifdef _MY_CRC16_TABLE_CALC_ENA
+#	define _MY_CRC64_ARRAY(data, len)  		fast_crc64jones_array((data), (len))
+#	define _MY_CRC64_BYTE(last_crc, data)  	fast_crc64jones_byte((last_crc), (data))
+#else
+#	define _MY_CRC64_ARRAY(data, len)  		slow_crc64jones_array((data), (len))
+#	define _MY_CRC64_BYTE(last_crc, data)  	slow_crc64jones_byte((last_crc), (data))
+#endif /* _MY_CRC16_TABLE_CALC_ENA */
+
+
 #endif /* _MY_CRC64_ENA */
 
 

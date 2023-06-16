@@ -6,11 +6,6 @@
 #include "smart_assert.h"
 #include "my_ctype_cast.h"
 
-#ifdef USE_ENTITY_ATOMIC
-#include "entity_atomic.h"
-#endif /* USE_ENTITY_ATOMIC */
-
-
 
 
 /*------------------- Packet formaters function`s ----------------------------------
@@ -555,6 +550,7 @@ int proceedGluedValues(u8* const inputData, u8* const outputData, reg* const siz
 
     (*size) = Wpos;
     UNUSED(maxOutBufferSize);
+    UNUSED(inputMsgSize);
     return ENTITY_OK;
 }
 

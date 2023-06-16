@@ -130,7 +130,7 @@ void entityCMD(u8* const inputData, u8* const outputData, reg* const size, const
 	/* **********************************************************************************************************************************
 	 * FLASH OPERATIONS (OPTIONAL)
 	 */
-	case ENTITY_FLASH_OPERATION: {
+	case ENTITY_BACKUP_OPERATION: {
 		break;}
 
 	}

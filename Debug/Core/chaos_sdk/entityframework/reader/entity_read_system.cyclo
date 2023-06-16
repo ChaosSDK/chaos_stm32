@@ -1,2 +1,2 @@
-entity_read_system.c:28:12:parentPointersCheck	23
-entity_read_system.c:58:5:initEntityReadSystem	8
+entity_read_system.c:26:12:parentPointersCheck	23
+entity_read_system.c:56:5:initEntityReadSystem	8

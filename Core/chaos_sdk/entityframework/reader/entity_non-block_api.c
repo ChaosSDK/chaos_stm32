@@ -1,9 +1,7 @@
 #include "entity_non-block_api.h"
 
 
-#ifdef C_ENTITY_FRAMEWORK_LIB_ENA
-
-#ifdef USE_ENTITY_READ_SERVICE
+#if defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE)
 
 #include "IntrusiveLinkedList.h"
 #include "entity_packet.h"
@@ -132,6 +130,8 @@ void entityNonBlockReadLoop(EntityNonBlockReadLoopVariables_t* const var)
             data[writeReqHead[board]++] = SEVERAL_VALUES_GLUED_END;
             *(var->size[board]) = writeReqHead[board];
         }
+
+        UNUSED(outBufferSize);
     }
 }
 
@@ -205,6 +205,4 @@ void entityNonBlockReceivePacket(const u16 boardNumber, u8* const inBuffer, cons
 }
 
 
-#endif /* USE_ENTITY_READ_SERVICE */
-
-#endif /* C_ENTITY_FRAMEWORK_LIB_ENA */
+#endif /* defined(C_ENTITY_FRAMEWORK_LIB_ENA) && defined(USE_ENTITY_READ_SERVICE) */
